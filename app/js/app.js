@@ -1,22 +1,36 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp',
-      ['myApp.config', 'myApp.routes', 'myApp.filters', 'myApp.services', 'myApp.directives', 'myApp.controllers',
-         'waitForAuth', 'routeSecurity']
-   )
+angular.module('swarmSched',
+        ['swarmSched.routes', 'swarmSched.filters', 'swarmSched.services', 'swarmSched.directives', 'swarmSched.controllers',
+            'waitForAuth', 'routeSecurity']
+    )
 
-   .run(['loginService', '$rootScope', 'FBURL', function(loginService, $rootScope, FBURL) {
-      if( FBURL === 'https://INSTANCE.firebaseio.com' ) {
-         // double-check that the app has been configured
-         angular.element(document.body).html('<h1>Please configure app/js/config.js before running!</h1>');
-         setTimeout(function() {
-            angular.element(document.body).removeClass('hide');
-         }, 250);
-      }
-      else {
-         // establish authentication
-         $rootScope.auth = loginService.init('/login');
-         $rootScope.FBURL = FBURL;
-      }
-   }]);
+    .run(['loginService', '$rootScope', 'FBURL', function (loginService, $rootScope, FBURL) {
+        // establish authentication
+        $rootScope.auth = loginService.init('/login');
+        $rootScope.FBURL = FBURL;
+    }])
+        // version of this seed app is compatible with angularFire 0.6
+        // see tags for other versions: https://github.com/firebase/angularFire-seed/tags
+        .constant('version', '0.6')
+
+        // where to redirect users if they need to authenticate (see module.routeSecurity)
+        .constant('loginRedirectPath', '/login')
+
+        // your Firebase URL goes here
+        .constant('FBURL', 'https://swarmsched.firebaseio.com')
+
+        //you can use this one to try out a demo of the seed
+//   .constant('FBURL', 'https://angularfire-seed.firebaseio.com');
+
+
+        /*********************
+         * !!FOR E2E TESTING!!
+         *
+         * Must enable email/password logins and manually create
+         * the test user before the e2e tests will pass
+         *
+         * user: test@test.com
+         * pass: test123
+         */

@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('myApp.routes', ['ngRoute'])
+angular.module('swarmSched.routes', ['ngRoute'])
 
    // configure views; the authRequired parameter is used for specifying pages
    // which should only be available while logged in

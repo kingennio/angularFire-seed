@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
+angular.module('swarmSched.controllers', [])
    .controller('HomeCtrl', ['$scope', 'syncData', function($scope, syncData) {
       syncData('syncedValue').$bind($scope, 'syncedValue');
    }])

@@ -3,7 +3,7 @@
 
    /* Services */
 
-   angular.module('myApp.services', ['myApp.service.login', 'myApp.service.firebase'])
+   angular.module('swarmSched.services', ['swarmSched.service.login', 'swarmSched.service.firebase'])
 
       // put your services here!
       // .service('serviceName', ['dependency', function(dependency) {}]);

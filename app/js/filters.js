@@ -2,7 +2,7 @@
 
 /* Filters */
 
-angular.module('myApp.filters', [])
+angular.module('swarmSched.filters', [])
    .filter('interpolate', ['version', function(version) {
       return function(text) {
          return String(text).replace(/\%VERSION\%/mg, version);
