@@ -3,6 +3,10 @@
 /* Controllers */
 
 angular.module('swarmSched.controllers', [])
+    .controller('TariffCtrl', ['$scope', 'syncData', function($scope, syncData) {
+        //syncData('syncedValue').$bind($scope, 'syncedValue');
+    }])
+
    .controller('HomeCtrl', ['$scope', 'syncData', function($scope, syncData) {
       syncData('syncedValue').$bind($scope, 'syncedValue');
    }])

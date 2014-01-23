@@ -6,12 +6,13 @@ angular.module('swarmSched',
             'waitForAuth', 'routeSecurity']
     )
 
-    .run(['loginService', '$rootScope', 'FBURL', function (loginService, $rootScope, FBURL) {
+    .run(['loginService', '$rootScope', '$location', 'FBURL', function (loginService, $rootScope, $location, FBURL) {
         // establish authentication
         $rootScope.auth = loginService.init('/login');
         $rootScope.FBURL = FBURL;
-        $rootScope.alert = setupHandlers;
-        console.log("root = " + root);
+        $rootScope.setupHandlers = setupHandlers;
+
+
     }])
         // version of this seed app is compatible with angularFire 0.6
         // see tags for other versions: https://github.com/firebase/angularFire-seed/tags

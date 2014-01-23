@@ -26,5 +26,10 @@ angular.module('swarmSched.routes', ['ngRoute'])
          controller: 'LoginCtrl'
       });
 
-      $routeProvider.otherwise({redirectTo: '/home'});
+        $routeProvider.when('/tariffs', {
+            templateUrl: 'partials/tariffs.html',
+            controller: 'TariffCtrl'
+        });
+
+      $routeProvider.otherwise({redirectTo: '/tariffs'});
    }]);

@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg preserveAspectRatio="xMinYMin meet" width="100%" height="100%" viewBox="0 0 525.000 393.750"  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <desc>Matlab Figure Converted by PLOT2SVG written by Juerg Schwizer</desc>
+  <g id="viewport">
+  <rect x="0" y="0" width="525.000" height="393.750" fill="#ffffff" stroke="none" />
+  <g id ="ID000000">
+  <clipPath id="ID000001">
+    <rect x="68.250" y="29.531" width="406.875" height="320.906"/>
+  </clipPath>
+      <polygon fill="#ffffff" fill-opacity="1.00" stroke="none" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="68.250,350.438 475.125,350.438 475.125,29.531 68.250,29.531 "/>
+      <polygon fill="#ffffff" fill-opacity="1.00" stroke="none" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="68.250,29.531 475.125,29.531 475.125,29.531 68.250,29.531 "/>
+      <polygon fill="#ffffff" fill-opacity="1.00" stroke="none" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="68.250,350.438 68.250,350.437 68.250,29.531 68.250,29.531 "/>
+    <g>
+<g id="ID000002" clip-path="url(#ID000001)" >
+<g id="ID000003" clip-path="url(#ID000001)" >
+<defs>
+<linearGradient id="ID000004" gradientUnits="userSpaceOnUse" x1="77.201" y1="29.531" x2="91.849" y2="29.531">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#7f0000" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000005" gradientUnits="userSpaceOnUse" x1="77.201" y1="350.438" x2="77.201" y2="29.531">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000004)" stroke="none" points="77.201,350.438 77.201,29.531 91.849,29.531 "/>
+<polyline fill="url(#ID000005)" stroke="none" points="77.201,350.438 77.201,29.531 91.849,29.531 "/>
+</g>
+<defs>
+<linearGradient id="ID000006" gradientUnits="userSpaceOnUse" x1="91.849" y1="29.531" x2="91.849" y2="350.438">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000007" gradientUnits="userSpaceOnUse" x1="77.201" y1="350.438" x2="91.849" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000006)" stroke="none" points="77.201,350.438 91.849,29.531 91.849,350.438 "/>
+<polyline fill="url(#ID000007)" stroke="none" points="77.201,350.438 91.849,29.531 91.849,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="77.201,350.438 77.201,29.531 91.849,29.531 91.849,350.438 "/>
+<defs>
+<linearGradient id="ID000008" gradientUnits="userSpaceOnUse" x1="93.476" y1="29.531" x2="108.124" y2="29.531">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#7f0000" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000009" gradientUnits="userSpaceOnUse" x1="93.476" y1="350.438" x2="93.476" y2="29.531">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000008)" stroke="none" points="93.476,350.438 93.476,29.531 108.124,29.531 "/>
+<polyline fill="url(#ID000009)" stroke="none" points="93.476,350.438 93.476,29.531 108.124,29.531 "/>
+</g>
+<defs>
+<linearGradient id="ID000010" gradientUnits="userSpaceOnUse" x1="108.124" y1="29.531" x2="108.124" y2="350.438">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000011" gradientUnits="userSpaceOnUse" x1="93.476" y1="350.438" x2="108.124" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000010)" stroke="none" points="93.476,350.438 108.124,29.531 108.124,350.438 "/>
+<polyline fill="url(#ID000011)" stroke="none" points="93.476,350.438 108.124,29.531 108.124,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="93.476,350.438 93.476,29.531 108.124,29.531 108.124,350.438 "/>
+<defs>
+<linearGradient id="ID000012" gradientUnits="userSpaceOnUse" x1="109.751" y1="29.531" x2="124.399" y2="29.531">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#7f0000" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000013" gradientUnits="userSpaceOnUse" x1="109.751" y1="350.438" x2="109.751" y2="29.531">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000012)" stroke="none" points="109.751,350.438 109.751,29.531 124.399,29.531 "/>
+<polyline fill="url(#ID000013)" stroke="none" points="109.751,350.438 109.751,29.531 124.399,29.531 "/>
+</g>
+<defs>
+<linearGradient id="ID000014" gradientUnits="userSpaceOnUse" x1="124.399" y1="29.531" x2="124.399" y2="350.438">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000015" gradientUnits="userSpaceOnUse" x1="109.751" y1="350.438" x2="124.399" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000014)" stroke="none" points="109.751,350.438 124.399,29.531 124.399,350.438 "/>
+<polyline fill="url(#ID000015)" stroke="none" points="109.751,350.438 124.399,29.531 124.399,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="109.751,350.438 109.751,29.531 124.399,29.531 124.399,350.438 "/>
+<defs>
+<linearGradient id="ID000016" gradientUnits="userSpaceOnUse" x1="126.026" y1="270.211" x2="140.674" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000017" gradientUnits="userSpaceOnUse" x1="126.026" y1="350.438" x2="126.026" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000016)" stroke="none" points="126.026,350.438 126.026,270.211 140.674,270.211 "/>
+<polyline fill="url(#ID000017)" stroke="none" points="126.026,350.438 126.026,270.211 140.674,270.211 "/>
+</g>
+<defs>
+<linearGradient id="ID000018" gradientUnits="userSpaceOnUse" x1="140.674" y1="270.211" x2="140.674" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000019" gradientUnits="userSpaceOnUse" x1="126.026" y1="350.438" x2="140.674" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000018)" stroke="none" points="126.026,350.438 140.674,270.211 140.674,350.438 "/>
+<polyline fill="url(#ID000019)" stroke="none" points="126.026,350.438 140.674,270.211 140.674,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="126.026,350.438 126.026,270.211 140.674,270.211 140.674,350.438 "/>
+<defs>
+<linearGradient id="ID000020" gradientUnits="userSpaceOnUse" x1="142.301" y1="270.211" x2="156.949" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000021" gradientUnits="userSpaceOnUse" x1="142.301" y1="350.438" x2="142.301" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000020)" stroke="none" points="142.301,350.438 142.301,270.211 156.949,270.211 "/>
+<polyline fill="url(#ID000021)" stroke="none" points="142.301,350.438 142.301,270.211 156.949,270.211 "/>
+</g>
+<defs>
+<linearGradient id="ID000022" gradientUnits="userSpaceOnUse" x1="156.949" y1="270.211" x2="156.949" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000023" gradientUnits="userSpaceOnUse" x1="142.301" y1="350.438" x2="156.949" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000022)" stroke="none" points="142.301,350.438 156.949,270.211 156.949,350.438 "/>
+<polyline fill="url(#ID000023)" stroke="none" points="142.301,350.438 156.949,270.211 156.949,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="142.301,350.438 142.301,270.211 156.949,270.211 156.949,350.438 "/>
+<defs>
+<linearGradient id="ID000024" gradientUnits="userSpaceOnUse" x1="158.576" y1="270.211" x2="173.224" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000025" gradientUnits="userSpaceOnUse" x1="158.576" y1="350.438" x2="158.576" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000024)" stroke="none" points="158.576,350.438 158.576,270.211 173.224,270.211 "/>
+<polyline fill="url(#ID000025)" stroke="none" points="158.576,350.438 158.576,270.211 173.224,270.211 "/>
+</g>
+<defs>
+<linearGradient id="ID000026" gradientUnits="userSpaceOnUse" x1="173.224" y1="270.211" x2="173.224" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000027" gradientUnits="userSpaceOnUse" x1="158.576" y1="350.438" x2="173.224" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000026)" stroke="none" points="158.576,350.438 173.224,270.211 173.224,350.438 "/>
+<polyline fill="url(#ID000027)" stroke="none" points="158.576,350.438 173.224,270.211 173.224,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="158.576,350.438 158.576,270.211 173.224,270.211 173.224,350.438 "/>
+<defs>
+<linearGradient id="ID000028" gradientUnits="userSpaceOnUse" x1="174.851" y1="29.531" x2="189.499" y2="29.531">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#7f0000" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000029" gradientUnits="userSpaceOnUse" x1="174.851" y1="350.438" x2="174.851" y2="29.531">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000028)" stroke="none" points="174.851,350.438 174.851,29.531 189.499,29.531 "/>
+<polyline fill="url(#ID000029)" stroke="none" points="174.851,350.438 174.851,29.531 189.499,29.531 "/>
+</g>
+<defs>
+<linearGradient id="ID000030" gradientUnits="userSpaceOnUse" x1="189.499" y1="29.531" x2="189.499" y2="350.438">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000031" gradientUnits="userSpaceOnUse" x1="174.851" y1="350.438" x2="189.499" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000030)" stroke="none" points="174.851,350.438 189.499,29.531 189.499,350.438 "/>
+<polyline fill="url(#ID000031)" stroke="none" points="174.851,350.438 189.499,29.531 189.499,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="174.851,350.438 174.851,29.531 189.499,29.531 189.499,350.438 "/>
+<defs>
+<linearGradient id="ID000032" gradientUnits="userSpaceOnUse" x1="191.126" y1="189.984" x2="205.774" y2="189.984">
+<stop offset="0" stop-color="#0087ff" stop-opacity="1"/>
+<stop offset="1" stop-color="#0087ff" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000033" gradientUnits="userSpaceOnUse" x1="191.126" y1="350.438" x2="191.126" y2="189.984">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000032)" stroke="none" points="191.126,350.438 191.126,189.984 205.774,189.984 "/>
+<polyline fill="url(#ID000033)" stroke="none" points="191.126,350.438 191.126,189.984 205.774,189.984 "/>
+</g>
+<defs>
+<linearGradient id="ID000034" gradientUnits="userSpaceOnUse" x1="205.774" y1="189.984" x2="205.774" y2="350.438">
+<stop offset="0" stop-color="#0087ff" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000035" gradientUnits="userSpaceOnUse" x1="191.126" y1="350.438" x2="205.774" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000034)" stroke="none" points="191.126,350.438 205.774,189.984 205.774,350.438 "/>
+<polyline fill="url(#ID000035)" stroke="none" points="191.126,350.438 205.774,189.984 205.774,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="191.126,350.438 191.126,189.984 205.774,189.984 205.774,350.438 "/>
+<defs>
+<linearGradient id="ID000036" gradientUnits="userSpaceOnUse" x1="207.401" y1="189.984" x2="222.049" y2="189.984">
+<stop offset="0" stop-color="#0087ff" stop-opacity="1"/>
+<stop offset="1" stop-color="#0087ff" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000037" gradientUnits="userSpaceOnUse" x1="207.401" y1="350.438" x2="207.401" y2="189.984">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000036)" stroke="none" points="207.401,350.438 207.401,189.984 222.049,189.984 "/>
+<polyline fill="url(#ID000037)" stroke="none" points="207.401,350.438 207.401,189.984 222.049,189.984 "/>
+</g>
+<defs>
+<linearGradient id="ID000038" gradientUnits="userSpaceOnUse" x1="222.049" y1="189.984" x2="222.049" y2="350.438">
+<stop offset="0" stop-color="#0087ff" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000039" gradientUnits="userSpaceOnUse" x1="207.401" y1="350.438" x2="222.049" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000038)" stroke="none" points="207.401,350.438 222.049,189.984 222.049,350.438 "/>
+<polyline fill="url(#ID000039)" stroke="none" points="207.401,350.438 222.049,189.984 222.049,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="207.401,350.438 207.401,189.984 222.049,189.984 222.049,350.438 "/>
+<defs>
+<linearGradient id="ID000040" gradientUnits="userSpaceOnUse" x1="223.676" y1="29.531" x2="238.324" y2="29.531">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#7f0000" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000041" gradientUnits="userSpaceOnUse" x1="223.676" y1="350.438" x2="223.676" y2="29.531">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000040)" stroke="none" points="223.676,350.438 223.676,29.531 238.324,29.531 "/>
+<polyline fill="url(#ID000041)" stroke="none" points="223.676,350.438 223.676,29.531 238.324,29.531 "/>
+</g>
+<defs>
+<linearGradient id="ID000042" gradientUnits="userSpaceOnUse" x1="238.324" y1="29.531" x2="238.324" y2="350.438">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000043" gradientUnits="userSpaceOnUse" x1="223.676" y1="350.438" x2="238.324" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000042)" stroke="none" points="223.676,350.438 238.324,29.531 238.324,350.438 "/>
+<polyline fill="url(#ID000043)" stroke="none" points="223.676,350.438 238.324,29.531 238.324,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="223.676,350.438 223.676,29.531 238.324,29.531 238.324,350.438 "/>
+<defs>
+<linearGradient id="ID000044" gradientUnits="userSpaceOnUse" x1="239.951" y1="270.211" x2="254.599" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000045" gradientUnits="userSpaceOnUse" x1="239.951" y1="350.438" x2="239.951" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000044)" stroke="none" points="239.951,350.438 239.951,270.211 254.599,270.211 "/>
+<polyline fill="url(#ID000045)" stroke="none" points="239.951,350.438 239.951,270.211 254.599,270.211 "/>
+</g>
+<defs>
+<linearGradient id="ID000046" gradientUnits="userSpaceOnUse" x1="254.599" y1="270.211" x2="254.599" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000047" gradientUnits="userSpaceOnUse" x1="239.951" y1="350.438" x2="254.599" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000046)" stroke="none" points="239.951,350.438 254.599,270.211 254.599,350.438 "/>
+<polyline fill="url(#ID000047)" stroke="none" points="239.951,350.438 254.599,270.211 254.599,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="239.951,350.438 239.951,270.211 254.599,270.211 254.599,350.438 "/>
+<defs>
+<linearGradient id="ID000048" gradientUnits="userSpaceOnUse" x1="256.226" y1="189.984" x2="270.874" y2="189.984">
+<stop offset="0" stop-color="#0087ff" stop-opacity="1"/>
+<stop offset="1" stop-color="#0087ff" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000049" gradientUnits="userSpaceOnUse" x1="256.226" y1="350.438" x2="256.226" y2="189.984">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000048)" stroke="none" points="256.226,350.438 256.226,189.984 270.874,189.984 "/>
+<polyline fill="url(#ID000049)" stroke="none" points="256.226,350.438 256.226,189.984 270.874,189.984 "/>
+</g>
+<defs>
+<linearGradient id="ID000050" gradientUnits="userSpaceOnUse" x1="270.874" y1="189.984" x2="270.874" y2="350.438">
+<stop offset="0" stop-color="#0087ff" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000051" gradientUnits="userSpaceOnUse" x1="256.226" y1="350.438" x2="270.874" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000050)" stroke="none" points="256.226,350.438 270.874,189.984 270.874,350.438 "/>
+<polyline fill="url(#ID000051)" stroke="none" points="256.226,350.438 270.874,189.984 270.874,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="256.226,350.438 256.226,189.984 270.874,189.984 270.874,350.438 "/>
+<defs>
+<linearGradient id="ID000052" gradientUnits="userSpaceOnUse" x1="272.501" y1="29.531" x2="287.149" y2="29.531">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#7f0000" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000053" gradientUnits="userSpaceOnUse" x1="272.501" y1="350.438" x2="272.501" y2="29.531">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000052)" stroke="none" points="272.501,350.438 272.501,29.531 287.149,29.531 "/>
+<polyline fill="url(#ID000053)" stroke="none" points="272.501,350.438 272.501,29.531 287.149,29.531 "/>
+</g>
+<defs>
+<linearGradient id="ID000054" gradientUnits="userSpaceOnUse" x1="287.149" y1="29.531" x2="287.149" y2="350.438">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000055" gradientUnits="userSpaceOnUse" x1="272.501" y1="350.438" x2="287.149" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000054)" stroke="none" points="272.501,350.438 287.149,29.531 287.149,350.438 "/>
+<polyline fill="url(#ID000055)" stroke="none" points="272.501,350.438 287.149,29.531 287.149,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="272.501,350.438 272.501,29.531 287.149,29.531 287.149,350.438 "/>
+<defs>
+<linearGradient id="ID000056" gradientUnits="userSpaceOnUse" x1="288.776" y1="29.531" x2="303.424" y2="29.531">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#7f0000" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000057" gradientUnits="userSpaceOnUse" x1="288.776" y1="350.438" x2="288.776" y2="29.531">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000056)" stroke="none" points="288.776,350.438 288.776,29.531 303.424,29.531 "/>
+<polyline fill="url(#ID000057)" stroke="none" points="288.776,350.438 288.776,29.531 303.424,29.531 "/>
+</g>
+<defs>
+<linearGradient id="ID000058" gradientUnits="userSpaceOnUse" x1="303.424" y1="29.531" x2="303.424" y2="350.438">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000059" gradientUnits="userSpaceOnUse" x1="288.776" y1="350.438" x2="303.424" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000058)" stroke="none" points="288.776,350.438 303.424,29.531 303.424,350.438 "/>
+<polyline fill="url(#ID000059)" stroke="none" points="288.776,350.438 303.424,29.531 303.424,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="288.776,350.438 288.776,29.531 303.424,29.531 303.424,350.438 "/>
+<defs>
+<linearGradient id="ID000060" gradientUnits="userSpaceOnUse" x1="305.051" y1="29.531" x2="319.699" y2="29.531">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#7f0000" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000061" gradientUnits="userSpaceOnUse" x1="305.051" y1="350.438" x2="305.051" y2="29.531">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000060)" stroke="none" points="305.051,350.438 305.051,29.531 319.699,29.531 "/>
+<polyline fill="url(#ID000061)" stroke="none" points="305.051,350.438 305.051,29.531 319.699,29.531 "/>
+</g>
+<defs>
+<linearGradient id="ID000062" gradientUnits="userSpaceOnUse" x1="319.699" y1="29.531" x2="319.699" y2="350.438">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000063" gradientUnits="userSpaceOnUse" x1="305.051" y1="350.438" x2="319.699" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000062)" stroke="none" points="305.051,350.438 319.699,29.531 319.699,350.438 "/>
+<polyline fill="url(#ID000063)" stroke="none" points="305.051,350.438 319.699,29.531 319.699,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="305.051,350.438 305.051,29.531 319.699,29.531 319.699,350.438 "/>
+<defs>
+<linearGradient id="ID000064" gradientUnits="userSpaceOnUse" x1="321.326" y1="270.211" x2="335.974" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000065" gradientUnits="userSpaceOnUse" x1="321.326" y1="350.438" x2="321.326" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000064)" stroke="none" points="321.326,350.438 321.326,270.211 335.974,270.211 "/>
+<polyline fill="url(#ID000065)" stroke="none" points="321.326,350.438 321.326,270.211 335.974,270.211 "/>
+</g>
+<defs>
+<linearGradient id="ID000066" gradientUnits="userSpaceOnUse" x1="335.974" y1="270.211" x2="335.974" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000067" gradientUnits="userSpaceOnUse" x1="321.326" y1="350.438" x2="335.974" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000066)" stroke="none" points="321.326,350.438 335.974,270.211 335.974,350.438 "/>
+<polyline fill="url(#ID000067)" stroke="none" points="321.326,350.438 335.974,270.211 335.974,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="321.326,350.438 321.326,270.211 335.974,270.211 335.974,350.438 "/>
+<defs>
+<linearGradient id="ID000068" gradientUnits="userSpaceOnUse" x1="337.601" y1="270.211" x2="352.249" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000069" gradientUnits="userSpaceOnUse" x1="337.601" y1="350.438" x2="337.601" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000068)" stroke="none" points="337.601,350.438 337.601,270.211 352.249,270.211 "/>
+<polyline fill="url(#ID000069)" stroke="none" points="337.601,350.438 337.601,270.211 352.249,270.211 "/>
+</g>
+<defs>
+<linearGradient id="ID000070" gradientUnits="userSpaceOnUse" x1="352.249" y1="270.211" x2="352.249" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000071" gradientUnits="userSpaceOnUse" x1="337.601" y1="350.438" x2="352.249" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000070)" stroke="none" points="337.601,350.438 352.249,270.211 352.249,350.438 "/>
+<polyline fill="url(#ID000071)" stroke="none" points="337.601,350.438 352.249,270.211 352.249,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="337.601,350.438 337.601,270.211 352.249,270.211 352.249,350.438 "/>
+<defs>
+<linearGradient id="ID000072" gradientUnits="userSpaceOnUse" x1="353.876" y1="270.211" x2="368.524" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000073" gradientUnits="userSpaceOnUse" x1="353.876" y1="350.438" x2="353.876" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000072)" stroke="none" points="353.876,350.438 353.876,270.211 368.524,270.211 "/>
+<polyline fill="url(#ID000073)" stroke="none" points="353.876,350.438 353.876,270.211 368.524,270.211 "/>
+</g>
+<defs>
+<linearGradient id="ID000074" gradientUnits="userSpaceOnUse" x1="368.524" y1="270.211" x2="368.524" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000075" gradientUnits="userSpaceOnUse" x1="353.876" y1="350.438" x2="368.524" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000074)" stroke="none" points="353.876,350.438 368.524,270.211 368.524,350.438 "/>
+<polyline fill="url(#ID000075)" stroke="none" points="353.876,350.438 368.524,270.211 368.524,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="353.876,350.438 353.876,270.211 368.524,270.211 368.524,350.438 "/>
+<defs>
+<linearGradient id="ID000076" gradientUnits="userSpaceOnUse" x1="370.151" y1="29.531" x2="384.799" y2="29.531">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#7f0000" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000077" gradientUnits="userSpaceOnUse" x1="370.151" y1="350.438" x2="370.151" y2="29.531">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000076)" stroke="none" points="370.151,350.438 370.151,29.531 384.799,29.531 "/>
+<polyline fill="url(#ID000077)" stroke="none" points="370.151,350.438 370.151,29.531 384.799,29.531 "/>
+</g>
+<defs>
+<linearGradient id="ID000078" gradientUnits="userSpaceOnUse" x1="384.799" y1="29.531" x2="384.799" y2="350.438">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000079" gradientUnits="userSpaceOnUse" x1="370.151" y1="350.438" x2="384.799" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000078)" stroke="none" points="370.151,350.438 384.799,29.531 384.799,350.438 "/>
+<polyline fill="url(#ID000079)" stroke="none" points="370.151,350.438 384.799,29.531 384.799,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="370.151,350.438 370.151,29.531 384.799,29.531 384.799,350.438 "/>
+<defs>
+<linearGradient id="ID000080" gradientUnits="userSpaceOnUse" x1="386.426" y1="189.984" x2="401.074" y2="189.984">
+<stop offset="0" stop-color="#0087ff" stop-opacity="1"/>
+<stop offset="1" stop-color="#0087ff" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000081" gradientUnits="userSpaceOnUse" x1="386.426" y1="350.438" x2="386.426" y2="189.984">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000080)" stroke="none" points="386.426,350.438 386.426,189.984 401.074,189.984 "/>
+<polyline fill="url(#ID000081)" stroke="none" points="386.426,350.438 386.426,189.984 401.074,189.984 "/>
+</g>
+<defs>
+<linearGradient id="ID000082" gradientUnits="userSpaceOnUse" x1="401.074" y1="189.984" x2="401.074" y2="350.438">
+<stop offset="0" stop-color="#0087ff" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000083" gradientUnits="userSpaceOnUse" x1="386.426" y1="350.438" x2="401.074" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000082)" stroke="none" points="386.426,350.438 401.074,189.984 401.074,350.438 "/>
+<polyline fill="url(#ID000083)" stroke="none" points="386.426,350.438 401.074,189.984 401.074,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="386.426,350.438 386.426,189.984 401.074,189.984 401.074,350.438 "/>
+<defs>
+<linearGradient id="ID000084" gradientUnits="userSpaceOnUse" x1="402.701" y1="189.984" x2="417.349" y2="189.984">
+<stop offset="0" stop-color="#0087ff" stop-opacity="1"/>
+<stop offset="1" stop-color="#0087ff" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000085" gradientUnits="userSpaceOnUse" x1="402.701" y1="350.438" x2="402.701" y2="189.984">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000084)" stroke="none" points="402.701,350.438 402.701,189.984 417.349,189.984 "/>
+<polyline fill="url(#ID000085)" stroke="none" points="402.701,350.438 402.701,189.984 417.349,189.984 "/>
+</g>
+<defs>
+<linearGradient id="ID000086" gradientUnits="userSpaceOnUse" x1="417.349" y1="189.984" x2="417.349" y2="350.438">
+<stop offset="0" stop-color="#0087ff" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000087" gradientUnits="userSpaceOnUse" x1="402.701" y1="350.438" x2="417.349" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000086)" stroke="none" points="402.701,350.438 417.349,189.984 417.349,350.438 "/>
+<polyline fill="url(#ID000087)" stroke="none" points="402.701,350.438 417.349,189.984 417.349,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="402.701,350.438 402.701,189.984 417.349,189.984 417.349,350.438 "/>
+<defs>
+<linearGradient id="ID000088" gradientUnits="userSpaceOnUse" x1="418.976" y1="29.531" x2="433.624" y2="29.531">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#7f0000" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000089" gradientUnits="userSpaceOnUse" x1="418.976" y1="350.438" x2="418.976" y2="29.531">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000088)" stroke="none" points="418.976,350.438 418.976,29.531 433.624,29.531 "/>
+<polyline fill="url(#ID000089)" stroke="none" points="418.976,350.438 418.976,29.531 433.624,29.531 "/>
+</g>
+<defs>
+<linearGradient id="ID000090" gradientUnits="userSpaceOnUse" x1="433.624" y1="29.531" x2="433.624" y2="350.438">
+<stop offset="0" stop-color="#7f0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000091" gradientUnits="userSpaceOnUse" x1="418.976" y1="350.438" x2="433.624" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000090)" stroke="none" points="418.976,350.438 433.624,29.531 433.624,350.438 "/>
+<polyline fill="url(#ID000091)" stroke="none" points="418.976,350.438 433.624,29.531 433.624,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="418.976,350.438 418.976,29.531 433.624,29.531 433.624,350.438 "/>
+<defs>
+<linearGradient id="ID000092" gradientUnits="userSpaceOnUse" x1="435.251" y1="270.211" x2="449.899" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000093" gradientUnits="userSpaceOnUse" x1="435.251" y1="350.438" x2="435.251" y2="270.211">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000092)" stroke="none" points="435.251,350.438 435.251,270.211 449.899,270.211 "/>
+<polyline fill="url(#ID000093)" stroke="none" points="435.251,350.438 435.251,270.211 449.899,270.211 "/>
+</g>
+<defs>
+<linearGradient id="ID000094" gradientUnits="userSpaceOnUse" x1="449.899" y1="270.211" x2="449.899" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000095" gradientUnits="userSpaceOnUse" x1="435.251" y1="350.438" x2="449.899" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000094)" stroke="none" points="435.251,350.438 449.899,270.211 449.899,350.438 "/>
+<polyline fill="url(#ID000095)" stroke="none" points="435.251,350.438 449.899,270.211 449.899,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="435.251,350.438 435.251,270.211 449.899,270.211 449.899,350.438 "/>
+<defs>
+<linearGradient id="ID000096" gradientUnits="userSpaceOnUse" x1="451.526" y1="189.984" x2="466.174" y2="189.984">
+<stop offset="0" stop-color="#0087ff" stop-opacity="1"/>
+<stop offset="1" stop-color="#0087ff" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000097" gradientUnits="userSpaceOnUse" x1="451.526" y1="350.438" x2="451.526" y2="189.984">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000096)" stroke="none" points="451.526,350.438 451.526,189.984 466.174,189.984 "/>
+<polyline fill="url(#ID000097)" stroke="none" points="451.526,350.438 451.526,189.984 466.174,189.984 "/>
+</g>
+<defs>
+<linearGradient id="ID000098" gradientUnits="userSpaceOnUse" x1="466.174" y1="189.984" x2="466.174" y2="350.438">
+<stop offset="0" stop-color="#0087ff" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="1"/>
+</linearGradient>
+<linearGradient id="ID000099" gradientUnits="userSpaceOnUse" x1="451.526" y1="350.438" x2="466.174" y2="350.438">
+<stop offset="0" stop-color="#000087" stop-opacity="1"/>
+<stop offset="1" stop-color="#000087" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g opacity="1.00">
+<polyline fill="url(#ID000098)" stroke="none" points="451.526,350.438 466.174,189.984 466.174,350.438 "/>
+<polyline fill="url(#ID000099)" stroke="none" points="451.526,350.438 466.174,189.984 466.174,350.438 "/>
+</g>
+<polygon fill="none" stroke="#000000" stroke-width="0.5pt" stroke-opacity="1.00" stroke-dasharray="none" points="451.526,350.438 451.526,189.984 466.174,189.984 466.174,350.438 "/>
+</g>
+</g><g id="ID000100" clip-path="url(#ID000001)" >
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,350.438 475.125,350.438 "/>
+<g>
+</g>
+</g>
+<g id="ID000101" >
+</g>
+<g id="ID000102" >
+</g>
+<g id="ID000103" >
+</g>
+    </g>
+    <g>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="149.625,350.438 149.625,346.369 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="231.000,350.438 231.000,346.369 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="312.375,350.438 312.375,346.369 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="393.750,350.438 393.750,346.369 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,350.438 475.125,350.438 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="149.625,29.531 149.625,33.600 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="231.000,29.531 231.000,33.600 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="312.375,29.531 312.375,33.600 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="393.750,29.531 393.750,33.600 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,29.531 475.125,29.531 "/>
+  <g transform="translate(68.250,367.918)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="9pt" fill="#000000" >0</text>
+    </g>
+  </g>
+  <g transform="translate(149.625,367.918)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="9pt" fill="#000000" >5</text>
+    </g>
+  </g>
+  <g transform="translate(231.000,367.918)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="9pt" fill="#000000" >10</text>
+    </g>
+  </g>
+  <g transform="translate(312.375,367.918)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="9pt" fill="#000000" >15</text>
+    </g>
+  </g>
+  <g transform="translate(393.750,367.918)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="9pt" fill="#000000" >20</text>
+    </g>
+  </g>
+  <g transform="translate(475.125,367.918)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="middle" font-size="9pt" fill="#000000" >25</text>
+    </g>
+  </g>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,318.347 72.319,318.347 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,286.256 72.319,286.256 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,254.166 72.319,254.166 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,222.075 72.319,222.075 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,189.984 72.319,189.984 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,157.894 72.319,157.894 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,125.803 72.319,125.803 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,93.713 72.319,93.713 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,61.622 72.319,61.622 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,350.438 68.250,29.531 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="475.125,318.347 471.056,318.347 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="475.125,286.256 471.056,286.256 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="475.125,254.166 471.056,254.166 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="475.125,222.075 471.056,222.075 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="475.125,189.984 471.056,189.984 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="475.125,157.894 471.056,157.894 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="475.125,125.803 471.056,125.803 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="475.125,93.713 471.056,93.713 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="475.125,61.622 471.056,61.622 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="475.125,350.438 475.125,29.531 "/>
+  <g transform="translate(60.112,354.656)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="9pt" fill="#000000" >0</text>
+    </g>
+  </g>
+  <g transform="translate(60.112,322.566)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="9pt" fill="#000000" >0.1</text>
+    </g>
+  </g>
+  <g transform="translate(60.112,290.475)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="9pt" fill="#000000" >0.2</text>
+    </g>
+  </g>
+  <g transform="translate(60.112,258.384)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="9pt" fill="#000000" >0.3</text>
+    </g>
+  </g>
+  <g transform="translate(60.112,226.294)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="9pt" fill="#000000" >0.4</text>
+    </g>
+  </g>
+  <g transform="translate(60.112,194.203)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="9pt" fill="#000000" >0.5</text>
+    </g>
+  </g>
+  <g transform="translate(60.112,162.113)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="9pt" fill="#000000" >0.6</text>
+    </g>
+  </g>
+  <g transform="translate(60.112,130.022)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="9pt" fill="#000000" >0.7</text>
+    </g>
+  </g>
+  <g transform="translate(60.112,97.931)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="9pt" fill="#000000" >0.8</text>
+    </g>
+  </g>
+  <g transform="translate(60.112,65.841)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="9pt" fill="#000000" >0.9</text>
+    </g>
+  </g>
+  <g transform="translate(60.112,33.750)">
+    <g transform="rotate(-0.0)">
+      <text x="0.000" y="0.000" font-family="Helvetica" text-anchor="end" font-size="9pt" fill="#000000" >1</text>
+    </g>
+  </g>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,350.438 68.250,347.228 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="0.5pt" stroke-dasharray="none" points="68.250,350.438 68.250,350.437 "/>
+    </g>
+  </g>
+  </g>
+</svg>
