@@ -5,6 +5,9 @@
 angular.module('swarmSched.controllers', [])
     .controller('TariffCtrl', ['$scope', 'syncData', function($scope, syncData) {
         //syncData('syncedValue').$bind($scope, 'syncedValue');
+        $scope.$on('svgsRendered', function(ngRepeatFinishedEvent) { // http://jsfiddle.net/paulocoelho/BsMqq/4/
+            $('svg').svgPan('viewport');
+        });
     }])
 
    .controller('HomeCtrl', ['$scope', 'syncData', function($scope, syncData) {
