@@ -4,22 +4,39 @@
 
     </header>
     <!--<div class=" panel panel-primary">-->
-        <!--<div class="panel-heading">-->
-            <!--<h4 class="panel-title">Simple three tier tariff</h4>-->
-        <!--</div>-->
-    <div ng-repeat="appliance in [1,2,3]">
-    <h3 class="text-center">Simple Three Tier Tariff</h3>
-        <div class="row">
-          <div class="col-md-2">
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                </label>
-            </div>
-              </div>
-            <div class="col-md-10" style="position: relative; height: 300px; display: block;">
-               <div id="svg1" ng-include="'partials/tariff.svg'" onload="setupHandlers()"/>
+    <!--<div class="panel-heading">-->
+    <!--<h4 class="panel-title">Simple three tier tariff</h4>-->
+    <!--</div>-->
+    <form name="loginForm" novalidate ng-submit="submit()" role="form">
+
+        <legend>Fill Setup Parameters</legend>
+
+        <div ng-repeat="appliance in [1,2,3]">
+            <h3 class="text-center">Simple Three Tier Tariff</h3>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" value="{{$index}}"
+                                   ng-model="tariffIndex.index" checked="{{$index == 0}}"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-10" style="position: relative; height: 300px; display: block;">
+                    <div id="svg1" ng-include="'partials/tariff.svg'" on-finish-render="svgsRendered"/>
+                </div>
             </div>
         </div>
-       </div>
+        <tt>{{tariffIndex.index}}</tt>
+        <div class="control-group col-md-2 col-md-offset-4">
+            <div class="controls">
+                <button class="btn btn-primary btn-block" ng-disabled="form.$invalid" type="submit">Go</button>
+            </div>
+        </div>
+
+        Debug View:
+        <pre>form={{loginForm}}</pre>
+
+    </form>
 </section>

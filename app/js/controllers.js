@@ -4,7 +4,18 @@
 
 angular.module('swarmSched.controllers', [])
     .controller('TariffCtrl', ['$scope', 'syncData', function($scope, syncData) {
+
+        $scope.tariffIndex = {index: 0};
+
         //syncData('syncedValue').$bind($scope, 'syncedValue');
+        $scope.$on('svgsRendered', function(ngRepeatFinishedEvent) { // http://jsfiddle.net/paulocoelho/BsMqq/4/
+            $('svg').svgPan('viewport');
+        });
+
+        $scope.submit = function() {
+            console.log("submit " + $scope.tariffIndex.index);
+        }
+
     }])
 
    .controller('HomeCtrl', ['$scope', 'syncData', function($scope, syncData) {
