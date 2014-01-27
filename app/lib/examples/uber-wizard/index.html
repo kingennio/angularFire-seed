@@ -20,32 +20,38 @@
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-sm-offset-3">
           <h1>Simple Wizard</h1>
-          <div ng-controller="SampleWizardController" 
+          <div ng-controller="SampleWizardController"
                rc-wizard="sampleWizard" rc-disabled="rc.firstForm.submitInProgress">
             <ul class="nav rc-nav-wizard">
               <li class="active">
-                <a class="active" href="#first" data-toggle="tab">
+                <a class="active" href="#tariffSelection" data-toggle="tab">
                   <span class="badge">1</span>
-                  <span>First Step</span>
+                  <span>Tariff, background, and solar selection</span>
                 </a>
               </li>
               <li>
-                <a href="#second" data-toggle="tab">
+                <a href="#applianceSelection" data-toggle="tab">
                   <span class="badge">2</span>
-                  <span>Second Step</span>
+                  <span>Appliance selection</span>
                 </a>
               </li>
               <li>
-                <a href="#last" data-toggle="tab">
+                <a href="#applianceConfiguration" data-toggle="tab">
                   <span class="badge">3</span>
-                  <span>Last Step</span>
+                  <span>Appliance configuration</span>
+                </a>
+              </li>
+              <li>
+                <a href="#setupSummary" data-toggle="tab">
+                  <span class="badge">4</span>
+                  <span>Setup summary</span>
                 </a>
               </li>
             </ul>
             <div class="tab-content">
-              <form class="tab-pane active" id="first" name="firstForm" 
+              <form class="tab-pane active" id="tariffSelection" name="tariffSelectionForm"
                     rc-submit="saveState()" rc-step novalidate>
-                <h2>Enter first step data</h2>
+                <h2>Tariff, background, and solar selection</h2>
                 <div class="form-group"
                      ng-class="{'has-error': rc.firstForm.needsAttention(firstForm.firstName)}">
                   <label class="control-label">First Name</label>
@@ -59,31 +65,54 @@
                          ng-model="user.lastName" />
                 </div>
               </form>
-              <form class="tab-pane" id="second" name="secondForm" rc-submit rc-step>
-                <h2>Enter second step data</h2>
+              <form class="tab-pane" id="applianceSelection" name="applianceSelectionForm" rc-submit rc-step>
+                <h2>Appliance selection</h2>
                 <div class="form-group">
                   <label class="control-label">Street Address</label>
-                  <input name="streetAddress" class="form-control" type="text" 
+                  <input name="streetAddress" class="form-control" type="text"
                          ng-model="user.streetAddress" />
                 </div>
                 <div class="form-group">
                   <label class="control-label">City</label>
-                  <input name="city" class="form-control" type="text" 
+                  <input name="city" class="form-control" type="text"
                          ng-model="user.city" />
                 </div>
                 <div class="form-group">
                   <label class="control-label">State</label>
-                  <input name="state" class="form-control" type="text" 
+                  <input name="state" class="form-control" type="text"
                          ng-model="user.state" />
                 </div>
                 <div class="form-group">
                   <label class="control-label">City</label>
-                  <input name="postalCode" class="form-control" type="text" 
+                  <input name="postalCode" class="form-control" type="text"
                          ng-model="user.postalCode" />
                 </div>
               </form>
-              <form class="tab-pane" id="last" name="lastForm" rc-submit="completeWizard()" rc-step>
-                <h2>Finish last step</h2>
+              <form class="tab-pane" id="applianceConfiguration" name="applianceConfigurationForm" rc-submit rc-step>
+                <h2>Appliance configuration</h2>
+                <div class="form-group">
+                  <label class="control-label">Street Address</label>
+                  <input name="streetAddress" class="form-control" type="text"
+                         ng-model="user.streetAddress" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label">City</label>
+                  <input name="city" class="form-control" type="text"
+                         ng-model="user.city" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label">State</label>
+                  <input name="state" class="form-control" type="text"
+                         ng-model="user.state" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label">City</label>
+                  <input name="postalCode" class="form-control" type="text"
+                         ng-model="user.postalCode" />
+                </div>
+              </form>
+              <form class="tab-pane" id="setupSummary" name="setupSummaryForm" rc-submit="completeWizard()" rc-step>
+                <h2>Setup summary</h2>
                 <div class="form-group">
                   <label class="control-label">First Name:</label>
                   <p class="form-control-static">{{ user.firstName }}</p>
@@ -106,9 +135,9 @@
               <div class="pull-right">
                 <a class="btn btn-default" ng-click="rc.sampleWizard.backward()"
                    ng-show="rc.sampleWizard.currentIndex > rc.sampleWizard.firstIndex">Back</a>
-                <a class="btn btn-primary" data-loading-text="Please Wait..." ng-click="rc.sampleWizard.forward()" 
+                <a class="btn btn-primary" data-loading-text="Please Wait..." ng-click="rc.sampleWizard.forward()"
                    ng-show="rc.sampleWizard.currentIndex < rc.sampleWizard.navigationLength">Continue</a>
-                <a class="btn btn-primary" ng-click="rc.sampleWizard.forward()" 
+                <a class="btn btn-primary" ng-click="rc.sampleWizard.forward()"
                    ng-show="rc.sampleWizard.currentIndex == rc.sampleWizard.navigationLength">Complete</a>
               </div>
             </div>
