@@ -12,17 +12,15 @@
         <legend>Fill Setup Parameters</legend>
 
         <div ng-repeat="appliance in [1,2,3]">
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="optionsRadios" value="{{$index}}"
-                                   ng-model="tariffIndex.id" checked="{{$index == tariffIndex.id}}"/>
-
-                            <h4>This is tariff No. {{$index}}</h4>
-
-                        </label>
-                    </div>
-            <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                <div class="responsive-content" id="svg1" ng-include="'partials/tariff.svg'" on-finish-render="svgsRendered"/>
+            <div class="col-xs-1">
+                <input id="{{ profile.profileId }}" name="{{ profile.profileId }}" type="number" class="form-control"
+                       ng-required="true" min="0" max="8" ng-model="profile.numberOfInstances"
+                       ng-change="profile.change()"/>
+            </div>
+            <h4>Instances of appliance profile: <strong><em>{{ $index }}</em></strong></h4>
+            <br>
+            <div class="responsive-wrapper" style="padding-top: {{ 70 }}%;">
+                <div class="responsive-content" id="svg1" ng-include="'partials/temperature.svg'"/>
                 </div>
             <br><br>
             </div>

@@ -64,3 +64,45 @@ fieldset {
    margin-right: 25px;
    padding: 25px;
 }
+
+
+body {
+    padding-top: 100px;
+}
+
+/*.ng-pristine {
+    border: 1px solid Gold;
+}
+
+.ng-dirty.ng-valid {
+    border: 1px solid Green;
+}
+
+.ng-dirty.ng-invalid {
+    border: 1px solid Red;
+}*/
+
+.ng-dirty.ng-valid ~ span.ok {
+    color: green;
+    display: inline;
+}
+
+.ng-dirty.ng-invalid ~ span.ko {
+    color: red;
+    display: inline;
+}
+
+.responsive-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 */
+    content: '';
+}
+
+.responsive-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /*fill parent*/
+}

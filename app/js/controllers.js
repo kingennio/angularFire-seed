@@ -5,7 +5,7 @@
 angular.module('swarmSched.controllers', [])
     .controller('TariffCtrl', ['$scope', 'syncData', function($scope, syncData) {
 
-        $scope.tariffIndex = {index: 0};
+        $scope.tariffIndex = {id : 0};
 
         //syncData('syncedValue').$bind($scope, 'syncedValue');
         $scope.$on('svgsRendered', function(ngRepeatFinishedEvent) { // http://jsfiddle.net/paulocoelho/BsMqq/4/
@@ -18,7 +18,7 @@ angular.module('swarmSched.controllers', [])
 
     }])
 
-   .controller('HomeCtrl', ['$scope', 'syncData', function($scope, syncData) {
+   .controller('HomeController', ['$scope', 'syncData', function($scope, syncData) {
       syncData('syncedValue').$bind($scope, 'syncedValue');
    }])
 

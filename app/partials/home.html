@@ -1,10 +1,25 @@
-<h2>Home</h2>
+<div class="container" ng-cloack>
+    <form class="form-horizontal" name="form">
+        <legend>Welcome to Swarm Scheduler App</legend>
+        <div class="messagesList" app-messages></div>
+        <div class="control-group">
+            <div ng-hide="account">Please Login.</div>
+            <div ng-show="account">Welcome {{ account['@name'] }}
+            , your session key is {{ account['@key'] }}</div>
+        </div>
+        <!--
+        <highchart id="chart1" series="chart.series" title="chart.title" options="chart.options"></highchart>
+         <chart value="{{ basicAreaChart }}" type="area" height="400"/>
+         <div id="container" style="width:100%; height:400px;"></div>
+        -->
+    </form>
+    <input ng-model="chart.title.text">
+    <button ng-click="addSeries()">Add Series</button>
+    <button ng-click="addPoints()">Add Points to Random Series</button>
+    <button ng-click="removeRandomSeries()">Remove Random Series</button>
+    <button ng-click="swapChartType()">Line/Bar</button>
 
-<p class="status good" ng-show-auth="login">Hello! You are logged in.</p>
-<p class="status" ng-show-auth="logout">Not logged in</p>
-<p class="status error" ng-show-auth="error">{{auth.error}}</p>
+    <highchart id="chart1" series="chart.series" title="chart.title" options="chart.options"></highchart>
 
-<input ng-model="syncedValue" type="text" /> <b>{{syncedValue}}</b>
-
-<p>Open <a ng-href="{{FBURL}}/syncedValue">Forge</a> or a <a target="_blank" href="#/">new window</a> to see this input update in real time:</p>
-
+    <chart value="basicAreaChart" type="spline" height="400"/>
+</div>

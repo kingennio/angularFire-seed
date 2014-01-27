@@ -3,23 +3,24 @@
 // Declare app level module which depends on filters, and services
 angular.module('swarmSched',
         ['swarmSched.routes', 'swarmSched.filters', 'swarmSched.services', 'swarmSched.directives', 'swarmSched.controllers',
-            'waitForAuth', 'routeSecurity']
-    )
+            'waitForAuth', 'routeSecurity'])
+
+    // version of this seed app is compatible with angularFire 0.6
+    // see tags for other versions: https://github.com/firebase/angularFire-seed/tags
+    .constant('version', '0.6')
+
+    // where to redirect users if they need to authenticate (see module.routeSecurity)
+    .constant('loginRedirectPath', '/login')
+
+    // your Firebase URL goes here
+    .constant('FBURL', 'https://swarmsched.firebaseio.com')
 
     .run(['loginService', '$rootScope', '$location', 'FBURL', function (loginService, $rootScope, $location, FBURL) {
         // establish authentication
         $rootScope.auth = loginService.init('/login');
         $rootScope.FBURL = FBURL;
     }])
-        // version of this seed app is compatible with angularFire 0.6
-        // see tags for other versions: https://github.com/firebase/angularFire-seed/tags
-        .constant('version', '0.6')
 
-        // where to redirect users if they need to authenticate (see module.routeSecurity)
-        .constant('loginRedirectPath', '/login')
-
-        // your Firebase URL goes here
-        .constant('FBURL', 'https://swarmsched.firebaseio.com')
 
         //you can use this one to try out a demo of the seed
 //   .constant('FBURL', 'https://angularfire-seed.firebaseio.com');
