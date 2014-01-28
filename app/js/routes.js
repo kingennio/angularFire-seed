@@ -44,7 +44,11 @@ angular.module('swarmSched.routes', ['ngRoute'])
                 templateUrl: 'partials/profiles.html',
                 controller: 'TariffCtrl'
             })
+            .when('/setupwizard', {
+                templateUrl: 'partials/setupwizard.html',
+                controller: 'SetupWizardController'
+            })
 
 
-      $routeProvider.otherwise({redirectTo: '/appliance-profiles'});
+      $routeProvider.otherwise({redirectTo: '/setupwizard'});
    }]);

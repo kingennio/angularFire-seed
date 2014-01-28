@@ -3,18 +3,60 @@
 /* Controllers */
 
 angular.module('swarmSched.controllers', [])
-    .controller('TariffCtrl', ['$scope', 'syncData', function($scope, syncData) {
+    .controller('SetupWizardController', ['$scope', 'firebaseRef', '$firebase',
+        function ($scope, firebaseRef, $firebase) {
 
-        $scope.tariffIndex = {id : 0};
+            $scope.timeFormat = /^([01]\d|2[0-3]):?([0-5]\d)$/
 
-        //syncData('syncedValue').$bind($scope, 'syncedValue');
-        $scope.$on('svgsRendered', function(ngRepeatFinishedEvent) { // http://jsfiddle.net/paulocoelho/BsMqq/4/
-            $('svg').svgPan('viewport');
-        });
+            $scope.profiles = [
+                {   profileId: "washingMachine",
+                    numberOfInstances: 0,
+                    instances: []
+                },
+                {   profileId: "dishMachine",
+                    numberOfInstances: 0,
+                    instances: []
+                },
+                {   profileId: "tumbleDryer",
+                    numberOfInstances: 0,
+                    instances: []
+                }
+            ];
+            $scope.tariffIndex = {id : 0};
 
-        $scope.submit = function() {
-            console.log("submit " + $scope.tariffIndex.index);
-        }
+            $scope.saveState = function() {
+                for (var i = 0; i < $scope.profiles.length; ++i) {
+                    var numberOfInstances = $scope.profiles[i].numberOfInstances;
+
+                    console.log(numberOfInstances)
+                    console.log($scope.profiles[i].instances.length)
+
+                    while (numberOfInstances > $scope.profiles[i].instances.length) {
+                        $scope.profiles[i].instances.push(
+                            {
+                                name: $scope.profiles[i].profileId + '-machine' + (1 + $scope.profiles[i].instances.length),
+                                startTime: '00:00',
+                                endTime: '23:59'
+                            }
+                        )
+                    }
+                    while (numberOfInstances < $scope.profiles[i].instances.length) {
+                        $scope.profiles[i].instances.pop()
+                    }
+                }
+            };
+
+            $scope.completeWizard = function() {
+                var path = "users/ennio/setups";
+                    var setup = {
+                        tariffId: $scope.tariffIndex.id,
+                        profiles: $scope.profiles
+                    }
+
+                   var id = $firebase(firebaseRef(path)).$add(setup)
+                console.log(id)
+            }
+
 
     }])
 

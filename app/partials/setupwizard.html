@@ -1,0 +1,190 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-11 col-md-10">
+            <h1>Setup Wizard</h1>
+
+            <div rc-wizard="setupWizard" rc-disabled="rc.tariffSelectionForm.submitInProgress">
+
+                <ul class="nav rc-nav-wizard">
+                    <li class="active">
+                        <a class="active" href="#tariffSelection" data-toggle="tab">
+                            <span class="badge">1</span>
+                            <span>Tariff, Forecast, and Solar Profiles</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#applianceSelection" data-toggle="tab">
+                            <span class="badge">2</span>
+                            <span>Appliance Profiles</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#applianceConfiguration" data-toggle="tab">
+                            <span class="badge">3</span>
+                            <span>Appliances Configuration</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#setupSummary" data-toggle="tab">
+                            <span class="badge">4</span>
+                            <span>Setup Summary</span>
+                        </a>
+                    </li>
+                </ul>
+                <br><br>
+
+                <div class="tab-content">
+
+                    <form class="tab-pane active" id="tariffSelection" name="tariffSelectionForm"
+                          rc-step novalidate>
+
+                        <h3>Select a tariff, and optional solar and (unmovable) forecasted load profiles:</h3>
+
+                        <div ng-repeat="appliance in [1]">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" value="{{$index}}"
+                                           ng-model="tariffIndex.id" checked="{{$index == tariffIndex.id}}"/>
+
+                                    <h4>This is tariff No. {{$index}}</h4>
+
+                                </label>
+                            </div>
+                            <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+                                <div class="responsive-content" id="svg1" ng-include="'partials/tariff.svg'"/>
+                            </div>
+                            <br><br>
+                        </div>
+
+
+                        Debug View:
+                        <pre>form={{tariffIndex.id | json}}</pre>
+
+                    </form>
+
+                    <form class="tab-pane" id="applianceSelection" name="applianceSelectionForm" rc-submit="saveState()"
+                          rc-step>
+                        <h2>Appliance selection</h2>
+
+                        <div ng-repeat="profile in profiles">
+                            <div class="col-xs-1">
+                                <input id="{{ profile.profileId }}" name="{{ profile.profileId }}" type="number"
+                                       class="form-control"
+                                       ng-required="true" min="0" max="8" ng-model="profile.numberOfInstances"
+                                "/>
+
+                            </div>
+                            <h4>Instances of appliance profile: <strong><em>{{ profile.profileId }}</em></strong></h4>
+                            <br>
+                            instances = {{ profile.numberOfInstances }}
+                            <br>
+
+                            <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+                                <div class="responsive-content" id="svg2" ng-include="'partials/temperature.svg'"/>
+                            </div>
+                            <br><br>
+                        </div>
+
+                    </form>
+
+
+                    <form class="tab-pane" id="applianceConfiguration" name="applianceConfigurationForm" rc-submit
+                          rc-step>
+                        <h2>Appliance configuration</h2>
+
+                        <div ng-repeat="profile in profiles">
+                            <div ng-show="profile.numberOfInstances > 0">
+
+                                <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+                                    <div class="responsive-content" id="svg3" ng-include="'partials/temperature.svg'"/>
+                                </div>
+
+                                <ul class="list-group">
+                                    <div ng-repeat="appliance in profile.instances">
+                                        <li class="list-group-item">
+                                            <div class="form-group row">
+
+                                                <div class="col-xs-10 col-sm-8 col-md-6">
+                                                    <label for="applianceName">Set a name for this appliance</label>
+                                                    <input id="applianceName" name="applianceName" type="text"
+                                                           class="form-control input-md"
+                                                           placeholder="Appliance Name"
+                                                           required ng-model="appliance.name">
+                                                </div>
+
+
+                                                <div class="col-xs-3 col-sm-2">
+                                                    <label for="startAfter">start after</label>
+                                                    <input id="startAfter" name="startAfter" class="form-control"
+                                                           name="startTime"
+                                                           type="time"
+                                                           ng-required="true" ng-model="appliance.startTime"
+                                                           ng-pattern="timeFormat">
+                                                </div>
+
+                                                <div class="col-xs-3 col-sm-2">
+                                                    <label for="endBefore">end before</label>
+                                                    <input id="endBefore" name="endBefore" class="form-control"
+                                                           type="time"
+                                                           ng-required="true"
+                                                           ng-model="appliance.endTime" ng-pattern="timeFormat">
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form class="tab-pane" id="setupSummary" name="setupSummaryForm" rc-submit="completeWizard()"
+                          rc-step>
+                        <h2>Setup summary</h2>
+
+                        tariff = {{ tariffIndex.id }}
+
+                        <br>
+
+                        <div ng-repeat="profile in profiles">
+                            <div ng-show="profile.numberOfInstances > 0">
+
+                                <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+                                    <div class="responsive-content" id="svg4" ng-include="'partials/temperature.svg'"/>
+                                </div>
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Appliance Name</th>
+                                        <th>Start After</th>
+                                        <th>End Before</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="appliance in profile.instances">
+                                        <td>{{ appliance.name }}</td>
+                                        <td>{{ appliance.startTime }}</td>
+                                        <td>{{ appliance.endTime }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="form-group">
+                    <div class="pull-right">
+                        <a class="btn btn-default" ng-click="rc.setupWizard.backward()"
+                           ng-show="rc.setupWizard.currentIndex > rc.setupWizard.firstIndex">Back</a>
+                        <a class="btn btn-primary" data-loading-text="Please Wait..."
+                           ng-click="rc.setupWizard.forward()"
+                           ng-show="rc.setupWizard.currentIndex < rc.setupWizard.navigationLength">Continue</a>
+                        <a class="btn btn-primary" ng-click="rc.setupWizard.forward()"
+                           ng-show="rc.setupWizard.currentIndex == rc.setupWizard.navigationLength">Complete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
