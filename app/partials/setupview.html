@@ -1,6 +1,12 @@
-<div ng-repeat="profile in setup.profiles">
-    <div ng-show="profile.numberOfInstances > 0">
+setup id {{setup.$id}}    <br>
+setup priority {{setup.priority}} <br>
 
+tariff = {{ tariffIndex.id }}     <br>
+
+
+<div ng-repeat="profile in setup.profiles">
+
+    <div ng-show="profile.numberOfInstances > 0">
         <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
             <div class="responsive-content" id="svg4" ng-include="'partials/temperature.svg'"/>
         </div>

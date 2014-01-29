@@ -22,6 +22,10 @@ angular.module('swarmSched.service.firebase', ['firebase'])
               return $firebase(firebaseSetupsRef);
           },
 
+          runSetup: function(setup) {
+               setup.$add({});
+          },
+
           addSetup : function(newSetup, callback) {
               var result;
               var promise = $firebase(firebaseSetupsRef).$add(newSetup);

@@ -3,14 +3,11 @@
 /* Controllers */
 
 angular.module('swarmSched.controllers', [])
-    .controller('SetupWizardController', ['$scope', 'swarmFirebase',
-        function ($scope, swarmFirebase) {
+    .controller('SetupWizardController', ['$scope', 'swarmFirebase', '$routeParams',
+        function ($scope, swarmFirebase, $routeParams) {
             $scope.timeFormat = /^([01]\d|2[0-3]):?([0-5]\d)$/
 
             $scope.setups = swarmFirebase.getSetups();
-
-
-
 
 
             $scope.profiles = [
@@ -62,7 +59,8 @@ angular.module('swarmSched.controllers', [])
                 var path = "users/ennio/setups";
                     var setup = {
                         tariffId: $scope.tariffIndex.id,
-                        profiles: $scope.profiles
+                        profiles: $scope.profiles,
+                        runs: 0
                     }
 
                    //var id = $firebase(firebaseRef(path)).$add(setup)
@@ -70,7 +68,19 @@ angular.module('swarmSched.controllers', [])
 
             }
 
-
+           $scope.runSetup = function() {
+               var id = $routeParams.setup;
+               var keys = $scope.setups.$getIndex();
+               var lastKey;
+               keys.forEach(function(key, i) {
+                   console.log(i, key); // prints items in order they appear in Firebase
+                   lastKey = key;
+                   //$scope.setup = $scope.setups[key];
+               });
+               var runs = $scope.setups.$child(lastKey + '/runs')
+               //var runs = $scope.setup.$child('runs')
+               runs.$add({dummy: 5})
+           }
     }])
 
    .controller('HomeController', ['$scope', 'syncData', function($scope, syncData) {

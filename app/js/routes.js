@@ -53,7 +53,12 @@ angular.module('swarmSched.routes', ['ngRoute'])
                 controller: 'SetupWizardController'
 
             })
+            .when('/runsetup/:setup', {
+                templateUrl: 'partials/runsetup.html',
+                controller: 'SetupWizardController'
+
+            })
 
 
-      $routeProvider.otherwise({redirectTo: '/setuplist'});
+      $routeProvider.otherwise({redirectTo: '/runsetup/10'});
    }]);
