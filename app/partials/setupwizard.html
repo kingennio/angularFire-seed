@@ -140,7 +140,9 @@
 
                     <form class="tab-pane" id="setupSummary" name="setupSummaryForm" rc-submit="completeWizard()"
                           rc-step>
-                        <h2>Setup summary</h2>
+
+                        <div ng-include="'partials/setupview.html'"></div>
+                        <!--<h2>Setup summary</h2>
 
                         tariff = {{ tariffIndex.id }}
 
@@ -169,7 +171,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                        </div>-->
 
                     </form>
                 </div>

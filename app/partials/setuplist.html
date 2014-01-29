@@ -1,0 +1,16 @@
+<div class="container" ng-cloack>
+    <h2>Setup List</h2>
+
+    <div ng-repeat="setup in setups">
+        <div class="row">
+            <h2>Setup summary</h2>
+
+            tariff = {{ tariffIndex.id }}
+
+            <br>
+
+            <div ng-include="'partials/setupview.html'"></div>
+
+        </div>
+    </div>
+</div>

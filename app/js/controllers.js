@@ -3,10 +3,15 @@
 /* Controllers */
 
 angular.module('swarmSched.controllers', [])
-    .controller('SetupWizardController', ['$scope', 'firebaseRef', '$firebase',
-        function ($scope, firebaseRef, $firebase) {
-
+    .controller('SetupWizardController', ['$scope', 'swarmFirebase',
+        function ($scope, swarmFirebase) {
             $scope.timeFormat = /^([01]\d|2[0-3]):?([0-5]\d)$/
+
+            $scope.setups = swarmFirebase.getSetups();
+
+
+
+
 
             $scope.profiles = [
                 {   profileId: "washingMachine",
@@ -23,6 +28,13 @@ angular.module('swarmSched.controllers', [])
                 }
             ];
             $scope.tariffIndex = {id : 0};
+
+            $scope.setup = {
+                tariffId: $scope.tariffIndex.id,
+                profiles: $scope.profiles
+            }
+
+
 
             $scope.saveState = function() {
                 for (var i = 0; i < $scope.profiles.length; ++i) {
@@ -53,8 +65,9 @@ angular.module('swarmSched.controllers', [])
                         profiles: $scope.profiles
                     }
 
-                   var id = $firebase(firebaseRef(path)).$add(setup)
-                console.log(id)
+                   //var id = $firebase(firebaseRef(path)).$add(setup)
+                var name = swarmFirebase.addSetup(setup)
+
             }
 
 

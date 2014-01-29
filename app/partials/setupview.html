@@ -1,0 +1,24 @@
+<div ng-repeat="profile in setup.profiles">
+    <div ng-show="profile.numberOfInstances > 0">
+
+        <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+            <div class="responsive-content" id="svg4" ng-include="'partials/temperature.svg'"/>
+        </div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Appliance Name</th>
+                <th>Start After</th>
+                <th>End Before</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="appliance in profile.instances">
+                <td>{{ appliance.name }}</td>
+                <td>{{ appliance.startTime }}</td>
+                <td>{{ appliance.endTime }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
