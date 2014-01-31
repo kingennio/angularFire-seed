@@ -2,49 +2,49 @@
 angular.module('swarmSched.service.firebase', ['firebase'])
 
 // a simple utility to create references to Firebase paths
-   .factory('swarmFirebase', ['$firebase', 'Firebase', 'FBURL', function($firebase, Firebase, FBURL) {
-      /**
-       * @function
-       * @name firebaseRef
-       * @param {String|Array...} path
-       * @return a Firebase instance
-       */
-      //var firebaseUserRef = new Firebase(FBURL.concat('users/ennio'));
-      var firebaseSetupsRef = new Firebase(FBURL + '/users/ennio/setups');
-        $firebase(firebaseSetupsRef).$on('loaded', function () {
-            var keys = $firebase(firebaseSetupsRef).$getIndex();
-            keys.forEach(function (key, i) {
-                console.log(i, key); // prints items in order they appear in Firebase
-            })
-        })
-      return  {
-          getSetups : function() {
-              return $firebase(firebaseSetupsRef);
-          },
-
-          runSetup: function(setup) {
-               setup.$add({});
-          },
-
-          addSetup : function(newSetup, callback) {
-              var result;
-              var promise = $firebase(firebaseSetupsRef).$add(newSetup);
-              promise.then(function(res) {
-                  firebaseSetupsRef.once('child_added', function(snapshot) {
-                      result = snapshot.name();
-                      console.log(result);
-                  })
-              })
-              promise.resolve;
-
-              var keys = $firebase(firebaseSetupsRef).$getIndex();
-              keys.forEach(function(key, i) {
-                  console.log(i, key); // prints items in order they appear in Firebase
-              });
-              return result;
-          }
-      }
-   }])
+//   .factory('swarmFirebase', ['$firebase', 'Firebase', 'FBURL', function($firebase, Firebase, FBURL) {
+//      /**
+//       * @function
+//       * @name firebaseRef
+//       * @param {String|Array...} path
+//       * @return a Firebase instance
+//       */
+//      //var firebaseUserRef = new Firebase(FBURL.concat('users/ennio'));
+//      var firebaseSetupsRef = new Firebase(FBURL + '/users/ennio/setups');
+////        $firebase(firebaseSetupsRef).$on('loaded', function () {
+////            var keys = $firebase(firebaseSetupsRef).$getIndex();
+////            keys.forEach(function (key, i) {
+////                console.log(i, key); // prints items in order they appear in Firebase
+////            })
+////        })
+//      return  {
+//          getSetups : function() {
+//              return $firebase(firebaseSetupsRef);
+//          },
+//
+//          runSetup: function(newSetup) {
+//               newSetup.$add({});
+//          },
+//
+//          addSetup : function(newSetup, callback) {
+//              var result;
+//              var promise = $firebase(firebaseSetupsRef).$add(newSetup);
+//              promise.then(function(res) {
+//                  firebaseSetupsRef.once('child_added', function(snapshot) {
+//                      result = snapshot.name();
+//                      console.log(result);
+//                  })
+//              })
+//              promise.resolve;
+//
+//              var keys = $firebase(firebaseSetupsRef).$getIndex();
+//              keys.forEach(function(key, i) {
+//                  console.log(i, key); // prints items in order they appear in Firebase
+//              });
+//              return result;
+//          }
+//      }
+//   }])
 
     // a simple utility to create references to Firebase paths
      .factory('firebaseRef', ['Firebase', 'FBURL', function(Firebase, FBURL) {

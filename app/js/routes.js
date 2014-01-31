@@ -33,7 +33,7 @@ angular.module('swarmSched.routes', ['ngRoute'])
         $routeProvider
             .when("/home", {controller: "HomeController", templateUrl: "partials/solar.html"})
             //.when("/login", {controller: "LogInController", templateUrl: "partials/login.html"})
-            .when("/setup-simulation", {controller: "SimulationSetupController", templateUrl: "partials/setup-simulation.html"})
+            .when("/newSetup-simulation", {controller: "SimulationSetupController", templateUrl: "partials/newSetup-simulation.html"})
             .when("/profiles/:profileId", {
                 controller: "PowerProfileController",
                 templateUrl: "partials/profile.html"
@@ -53,12 +53,11 @@ angular.module('swarmSched.routes', ['ngRoute'])
                 controller: 'SetupWizardController'
 
             })
-            .when('/runsetup/:setup', {
+            .when('/runsetup/:newSetup', {
                 templateUrl: 'partials/runsetup.html',
                 controller: 'SetupWizardController'
 
             })
 
-
-      $routeProvider.otherwise({redirectTo: '/runsetup/10'});
+      $routeProvider.otherwise({redirectTo: '/setuplist'});
    }]);

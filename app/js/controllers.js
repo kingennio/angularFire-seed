@@ -3,83 +3,93 @@
 /* Controllers */
 
 angular.module('swarmSched.controllers', [])
-    .controller('SetupWizardController', ['$scope', 'swarmFirebase', '$routeParams',
-        function ($scope, swarmFirebase, $routeParams) {
+    .controller('SetupWizardController', ['$scope', '$rootScope', '$routeParams', 'FBURL', '$firebase',
+        function ($scope, $rootScope, $routeParams, FBURL, $firebase) {
             $scope.timeFormat = /^([01]\d|2[0-3]):?([0-5]\d)$/
 
-            $scope.setups = swarmFirebase.getSetups();
+            var setupsRef = new Firebase(FBURL + '/users/ennio/setups');
+            var profilesRef = new Firebase(FBURL + '/profiles');
+            var stagingRef = new Firebase(FBURL + '/stagingJobs');
 
+            $rootScope.setups = $firebase(setupsRef);
+            $rootScope.profiles = $firebase(profilesRef);
 
-            $scope.profiles = [
-                {   profileId: "washingMachine",
-                    numberOfInstances: 0,
-                    instances: []
-                },
-                {   profileId: "dishMachine",
-                    numberOfInstances: 0,
-                    instances: []
-                },
-                {   profileId: "tumbleDryer",
-                    numberOfInstances: 0,
-                    instances: []
-                }
-            ];
-            $scope.tariffIndex = {id : 0};
-
-            $scope.setup = {
-                tariffId: $scope.tariffIndex.id,
-                profiles: $scope.profiles
+            $rootScope.newSetup = $rootScope.newSetup || {
+                applianceProfiles: {}
             }
 
+            $scope.profiles.$on('loaded', function() {
+                for (var p in  $rootScope.newSetup.applianceProfiles)
+                    return;
+
+                console.log('init profiles loaded...')
+
+                for (p in $rootScope.profiles.tariffProfiles) {
+                    $scope.newSetup.tariffProfile = ($rootScope.profiles.tariffProfiles[p])['id'];
+                    break;
+                }
+
+                var applianceProfiles = $rootScope.profiles.applianceProfiles;
+                for (var p in applianceProfiles) {
+                    $rootScope.newSetup.applianceProfiles[p] = {
+                        id: p,
+                        numberOfInstances: 0,
+                        instances: []
+                    }
+                }
+            })
 
 
-            $scope.saveState = function() {
-                for (var i = 0; i < $scope.profiles.length; ++i) {
-                    var numberOfInstances = $scope.profiles[i].numberOfInstances;
+            $scope.validateSetup = function() {
+                var appliances = $rootScope.newSetup.applianceProfiles;
+                for (var p in appliances) {
+                    var numberOfInstances = appliances[p].numberOfInstances;
 
                     console.log(numberOfInstances)
-                    console.log($scope.profiles[i].instances.length)
+                    console.log(appliances[p].instances.length)
 
-                    while (numberOfInstances > $scope.profiles[i].instances.length) {
-                        $scope.profiles[i].instances.push(
-                            {
-                                name: $scope.profiles[i].profileId + '-machine' + (1 + $scope.profiles[i].instances.length),
+                    while (numberOfInstances > appliances[p].instances.length) {
+                        appliances[p].instances.push({
+                                name: $rootScope.profiles.applianceProfiles[p].id + (1 + appliances[p].instances.length),
                                 startTime: '00:00',
                                 endTime: '23:59'
-                            }
-                        )
+                            })
                     }
-                    while (numberOfInstances < $scope.profiles[i].instances.length) {
-                        $scope.profiles[i].instances.pop()
+                    while (numberOfInstances < appliances[p].instances.length) {
+                        appliances[p].instances.pop()
                     }
                 }
             };
 
-            $scope.completeWizard = function() {
-                var path = "users/ennio/setups";
-                    var setup = {
-                        tariffId: $scope.tariffIndex.id,
-                        profiles: $scope.profiles,
-                        runs: 0
-                    }
-
-                   //var id = $firebase(firebaseRef(path)).$add(setup)
-                var name = swarmFirebase.addSetup(setup)
-
+            $scope.postSetup = function() {
+                $rootScope.setups.$add($scope.newSetup)
             }
 
-           $scope.runSetup = function() {
-               var id = $routeParams.setup;
-               var keys = $scope.setups.$getIndex();
-               var lastKey;
-               keys.forEach(function(key, i) {
-                   console.log(i, key); // prints items in order they appear in Firebase
-                   lastKey = key;
-                   //$scope.setup = $scope.setups[key];
+            $scope.cloneSetup = function(setup) {
+                angular.copy(setup, $rootScope.newSetup);
+                for (var p in $rootScope.newSetup) {
+                    if (p.indexOf('$') == 0 || p == 'runs') delete $rootScope.newSetup[p];
+                }
+            }
+
+           $scope.runSetup = function(setup) {
+               $scope.cloneSetup(setup);
+
+               var setupKey = setup.$id;
+               var jobRef = stagingRef.push($rootScope.newSetup);
+               var result = jobRef.child('result');
+
+
+               result.on('value', function(snapshot) {
+                   if (!snapshot.val()) return;
+
+                   result.off();
+                   var id = snapshot.name();
+                   var value = snapshot.val();
+                   jobRef.remove();
+                   var runs = $rootScope.setups.$child(setupKey + '/runs');
+                   runs.$add(value);
                });
-               var runs = $scope.setups.$child(lastKey + '/runs')
-               //var runs = $scope.setup.$child('runs')
-               runs.$add({dummy: 5})
            }
     }])
 

@@ -10,9 +10,11 @@
 
     <link rel="stylesheet" href="css/app.css"/>
     <link rel="stylesheet" href="css/rcWizard.css"/>
+    <link rel="stylesheet" href="css/animations.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
 
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -21,12 +23,12 @@
 </head>
 <body ng-controller="HomeController" ng-cloak>
 
-  <ul class="menu">
-    <li><a href="#/home">home</a></li>
-    <li><a href="#/chat">chat</a></li>
-    <li ng-show-auth="logout,error"><a href="#/login">login</a></li>
-    <li ng-show-auth="login"><a href="#/account">account</a></li>
-  </ul>
+  <!--<ul class="menu">-->
+    <!--<li><a href="#/home">home</a></li>-->
+    <!--<li><a href="#/chat">chat</a></li>-->
+    <!--<li ng-show-auth="logout,error"><a href="#/login">login</a></li>-->
+    <!--<li ng-show-auth="login"><a href="#/account">account</a></li>-->
+  <!--</ul>-->
 
   <nav id="top-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -69,13 +71,13 @@
       <div class="row">
 
           <!-- content starts -->
-          <div class="col-xs-12 col-sm-11 col-md-10 col-lg-10 col-xl-9 pull-right" id="content">
+          <div class="col-xs-11 col-md-10 pull-right" id="content">
               <section class="container" ng-view></section>
           </div>
 
 
           <!-- left menu starts  -->
-          <aside id="sidebar" class="col-md-1 col-lg-2" role="navigation">
+          <aside id="sidebar" class="col-xs-1 col-md-2" role="navigation">
               <!--<div class="well well-small nav-collapse sidebar-nav">
                   <ul class="nav nav-tabs nav-stacked main-menu"> -->
               <ul class="nav nav-pills nav-stacked">
@@ -126,7 +128,7 @@
                   </a>
 
                   <a href="#profiles/dishmachine" class="list-group-item"><span class="glyphicon glyphicon-eye-open">  Appliance Profile</span></a>
-                  <a href="#setup-simulation" class="list-group-item"><span class="glyphicon glyphicon-edit">  Simulation Setup</span></a>
+                  <a href="#newSetup-simulation" class="list-group-item"><span class="glyphicon glyphicon-edit">  Simulation Setup</span></a>
                   <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list-alt">  Charts</span></a>
                   <a href="#" class="list-group-item"><span class="glyphicon glyphicon-font">  Typography</span></a>
                   <a href="#" class="list-group-item"><span class="glyphicon glyphicon-picture">  Gallery</span></a>
@@ -158,6 +160,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-animate.min.js"></script>
   <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.js"></script>
 
 

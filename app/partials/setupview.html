@@ -1,15 +1,10 @@
-setup id {{setup.$id}}    <br>
-setup priority {{setup.priority}} <br>
-
-tariff = {{ tariffIndex.id }}     <br>
-
-
-<div ng-repeat="profile in setup.profiles">
+<div ng-repeat="profile in setup.applianceProfiles | orderByPriority">
 
     <div ng-show="profile.numberOfInstances > 0">
         <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-            <div class="responsive-content" id="svg4" ng-include="'partials/temperature.svg'"/>
+            <div class="responsive-content" ng-include="'partials/temperature.svg'"/>
         </div>
+
         <table class="table table-hover">
             <thead>
             <tr>
@@ -27,4 +22,10 @@ tariff = {{ tariffIndex.id }}     <br>
             </tbody>
         </table>
     </div>
+</div>
+
+<div ng-repeat="run in setup.runs | orderByPriority">
+
+    run {{ run }} <br>
+
 </div>
