@@ -67,6 +67,12 @@ angular.module('swarmSched.controllers', [])
 
             $scope.cloneSetup = function(setup) {
                 angular.copy(setup, $rootScope.newSetup);
+
+                for (var p in $rootScope.newSetup.applianceProfiles) {
+                    if ($rootScope.newSetup.applianceProfiles[p].numberOfInstances == 0)
+                        $rootScope.newSetup.applianceProfiles[p].instances = [];
+                }
+
                 for (var p in $rootScope.newSetup) {
                     if (p.indexOf('$') == 0 || p == 'runs') delete $rootScope.newSetup[p];
                 }
@@ -89,6 +95,7 @@ angular.module('swarmSched.controllers', [])
                    jobRef.remove();
                    var runs = $rootScope.setups.$child(setupKey + '/runs');
                    runs.$add(value);
+                   alert("run available!");
                });
            }
     }])

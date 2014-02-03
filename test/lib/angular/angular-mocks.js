@@ -1459,7 +1459,7 @@ angular.module('ngMockE2E', ['ng']).config(function($provide) {
  * testing. For this reason the e2e $httpBackend automatically flushes mocked out requests
  * automatically, closely simulating the behavior of the XMLHttpRequest object.
  *
- * To newSetup the application to run with this http backend, you have to create a module that depends
+ * To setup the application to run with this http backend, you have to create a module that depends
  * on the `ngMockE2E` and your application modules and defines the fake backend:
  *
  * <pre>

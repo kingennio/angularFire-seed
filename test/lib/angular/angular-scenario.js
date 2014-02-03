@@ -2983,7 +2983,7 @@ jQuery.event = {
 				handlers.delegateCount = 0;
 
 				// Only use addEventListener/attachEvent if the special events handler returns false
-				if ( !special.newSetup || special.newSetup.call( elem, data, namespaces, eventHandle ) === false ) {
+				if ( !special.setup || special.setup.call( elem, data, namespaces, eventHandle ) === false ) {
 					// Bind the global event handler to the element
 					if ( elem.addEventListener ) {
 						elem.addEventListener( type, eventHandle, false );
@@ -3440,8 +3440,8 @@ jQuery.event = {
 
 	special: {
 		ready: {
-			// Make sure the ready event is newSetup
-			newSetup: jQuery.bindReady
+			// Make sure the ready event is setup
+			setup: jQuery.bindReady
 		},
 
 		load: {
@@ -3457,7 +3457,7 @@ jQuery.event = {
 		},
 
 		beforeunload: {
-			newSetup: function( data, namespaces, eventHandle ) {
+			setup: function( data, namespaces, eventHandle ) {
 				// We only want to do this special case on windows
 				if ( jQuery.isWindow( this ) ) {
 					this.onbeforeunload = eventHandle;
@@ -3626,7 +3626,7 @@ jQuery.each({
 if ( !jQuery.support.submitBubbles ) {
 
 	jQuery.event.special.submit = {
-		newSetup: function() {
+		setup: function() {
 			// Only need this for delegated form submit events
 			if ( jQuery.nodeName( this, "form" ) ) {
 				return false;
@@ -3674,7 +3674,7 @@ if ( !jQuery.support.changeBubbles ) {
 
 	jQuery.event.special.change = {
 
-		newSetup: function() {
+		setup: function() {
 
 			if ( rformElems.test( this.nodeName ) ) {
 				// IE doesn't fire change on a check/radio until blur; trigger it on click
@@ -3738,7 +3738,7 @@ if ( !jQuery.support.focusinBubbles ) {
 			};
 
 		jQuery.event.special[ fix ] = {
-			newSetup: function() {
+			setup: function() {
 				if ( attaches++ === 0 ) {
 					document.addEventListener( orig, handler, true );
 				}
@@ -8671,7 +8671,7 @@ jQuery.fn.extend({
 						// force the next step to be the last
 						timers[ index ]( true );
 					} else {
-						timers[ index ].saveSetup();
+						timers[ index ].saveState();
 					}
 					hadTimers = true;
 					timers.splice( index, 1 );
@@ -8821,7 +8821,7 @@ jQuery.fx.prototype = {
 
 		t.queue = this.options.queue;
 		t.elem = this.elem;
-		t.saveSetup = function() {
+		t.saveState = function() {
 			if ( jQuery._data( self.elem, "fxshow" + self.prop ) === undefined ) {
 				if ( self.options.hide ) {
 					jQuery._data( self.elem, "fxshow" + self.prop, self.start );
