@@ -7,43 +7,6 @@ angular.module('swarmSched.controllers', [])
         function ($scope, $rootScope, $routeParams, FBURL, $firebase, $location) {
             $scope.timeFormat = /^([01]\d|2[0-3]):?([0-5]\d)$/
 
-            var setupsRef = new Firebase(FBURL + '/users/ennio/setups');
-            var profilesRef = new Firebase(FBURL + '/profiles');
-            var stagingRef = new Firebase(FBURL + '/stagingJobs');
-
-            $rootScope.setups = $firebase(setupsRef);
-            $rootScope.profiles = $firebase(profilesRef);
-
-            $rootScope.newSetup = $rootScope.newSetup || {
-                applianceProfiles: {}
-            }
-
-            $scope.profiles.$on('loaded', function() {
-                for (var p in  $rootScope.newSetup.applianceProfiles)
-                    return;
-
-                console.log('init profiles loaded...')
-
-                for (p in $rootScope.profiles.tariffProfiles) {
-                    $scope.newSetup.tariffProfile = ($rootScope.profiles.tariffProfiles[p])['id'];
-                    break;
-                }
-
-                var applianceProfiles = $rootScope.profiles.applianceProfiles;
-                for (var p in applianceProfiles) {
-                    $rootScope.newSetup.applianceProfiles[p] = {
-                        id: p,
-                        numberOfInstances: 0,
-                        instances: []
-                    }
-                }
-            })
-
-            $scope.setups.$on('loaded', function() {
-                console.log('setups loaded...')
-            })
-
-
             $scope.validateSetup = function() {
                 var appliances = $rootScope.newSetup.applianceProfiles;
                 for (var p in appliances) {
@@ -88,6 +51,45 @@ angular.module('swarmSched.controllers', [])
                      https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js:4416
                      */
             }
+    }])
+
+    .controller('SetupListController', ['$scope', '$rootScope', '$routeParams', 'FBURL', '$firebase',
+        function ($scope, $rootScope, $routeParams, FBURL, $firebase) {
+            var setupsRef = new Firebase(FBURL + '/users/ennio/setups');
+            var profilesRef = new Firebase(FBURL + '/profiles');
+            var stagingRef = new Firebase(FBURL + '/stagingJobs');
+
+            $rootScope.setups = $firebase(setupsRef);
+            $rootScope.profiles = $firebase(profilesRef);
+
+            $rootScope.newSetup = $rootScope.newSetup || {
+                applianceProfiles: {}
+            }
+
+            $scope.profiles.$on('loaded', function() {
+                for (var p in  $rootScope.newSetup.applianceProfiles)
+                    return;
+
+                console.log('init profiles loaded...')
+
+                for (p in $rootScope.profiles.tariffProfiles) {
+                    $scope.newSetup.tariffProfile = ($rootScope.profiles.tariffProfiles[p])['id'];
+                    break;
+                }
+
+                var applianceProfiles = $rootScope.profiles.applianceProfiles;
+                for (var p in applianceProfiles) {
+                    $rootScope.newSetup.applianceProfiles[p] = {
+                        id: p,
+                        numberOfInstances: 0,
+                        instances: []
+                    }
+                }
+            })
+
+            $scope.setups.$on('loaded', function() {
+                console.log('setups loaded...')
+            })
 
             $scope.cloneSetup = function(setup) {
                 angular.copy(setup, $rootScope.newSetup);

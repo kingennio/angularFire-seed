@@ -58,12 +58,12 @@ angular.module('swarmSched.routes', ['ngRoute'])
             })
             .when('/setuplist', {
                 templateUrl: 'partials/setuplist.html',
-                controller: 'SetupWizardController'
+                controller: 'SetupListController'
 
             })
             .when('/runsetup/:newSetup', {
                 templateUrl: 'partials/runsetup.html',
-                controller: 'SetupWizardController'
+                controller: 'SetupListController'
 
             })
 
