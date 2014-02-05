@@ -5,6 +5,8 @@
 angular.module('swarmSched.controllers', [])
     .controller('SetupWizardController', ['$scope', '$rootScope', '$routeParams', 'FBURL', '$firebase', '$location',
         function ($scope, $rootScope, $routeParams, FBURL, $firebase, $location) {
+            $scope.setup = $rootScope.newSetup; // to make setupview.html work within setupwizard.html
+
             $scope.timeFormat = /^([01]\d|2[0-3]):?([0-5]\d)$/
 
             $scope.validateSetup = function() {
@@ -62,7 +64,10 @@ angular.module('swarmSched.controllers', [])
             $rootScope.setups = $firebase(setupsRef);
             $rootScope.profiles = $firebase(profilesRef);
 
-            $rootScope.newSetup = $rootScope.newSetup || {
+            $rootScope.newSetup = $rootScope.newSetup || { // sample json setup in
+                // todo: add upperPowerThreshold.
+                // E.g.:
+                // "upperPowerThreshold": 2000
                 applianceProfiles: {}
             }
 
@@ -74,6 +79,16 @@ angular.module('swarmSched.controllers', [])
 
                 for (p in $rootScope.profiles.tariffProfiles) {
                     $scope.newSetup.tariffProfile = ($rootScope.profiles.tariffProfiles[p])['id'];
+                    break;
+                }
+
+                for (p in $rootScope.profiles.solarProfiles) {
+                    $scope.newSetup.solarProfile = p;
+                    break;
+                }
+
+                for (p in $rootScope.profiles.loadProfiles) {
+                    $scope.newSetup.loadProfile = p;
                     break;
                 }
 

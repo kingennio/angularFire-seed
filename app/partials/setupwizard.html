@@ -57,7 +57,44 @@
                             </div>
                             <br><br>
                         </div>
-                        <pre>{{setup.tariffProfile | json}}</pre>
+                        <pre>{{profiles.tariffProfiles | json}}</pre>
+                        <pre>{{newSetup.tariffProfile | json}}</pre>
+
+                        <div ng-repeat="(key,val) in profiles.solarProfiles">  <!-- does not work with ordering! -->
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" id="{{key}}" name="{{key}}" value="{{key}}"
+                                           ng-model="newSetup.solarProfile" checked="{{ newSetup.solarProfile == key }}"/>
+
+                                    <h4>This is solar {{key}}: value: {{val}}</h4>
+
+                                </label>
+                            </div>
+                            <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+                                <div class="responsive-content" ng-include="'partials/solar.svg'"/>
+                            </div>
+                            <br><br>
+                        </div>
+                        <pre>{{profiles.solarProfiles | json}}</pre>
+                        <pre>{{newSetup.solarProfile | json}}</pre>
+
+                        <div ng-repeat="(key,val) in profiles.loadProfiles"> <!-- does not work with ordering! -->
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" id="{{key}}" name="{{key}}" value="{{key}}"
+                                           ng-model="newSetup.loadProfile" checked="{{ newSetup.loadProfile == key }}"/>
+
+                                    <h4>This is load {{key}}: value: {{val}}</h4>
+
+                                </label>
+                            </div>
+                            <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+                                <div class="responsive-content" ng-include="'partials/load.svg'"/>
+                            </div>
+                            <br><br>
+                        </div>
+                        <pre>{{profiles.loadProfiles | json}}</pre>
+                        <pre>{{newSetup.loadProfile | json}}</pre>
 
                     </form>
 
