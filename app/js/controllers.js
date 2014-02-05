@@ -67,8 +67,8 @@ angular.module('swarmSched.controllers', [])
 
             $scope.postSetup = function() {
                 $rootScope.setups.$add($scope.newSetup);
-                $location.path('/setuplist'); // dopo la pressione del tasto Complete redirige su setuplist, al termine del wizard.
-                    // Pero' il wizard da' un errore apparentemente trascurabile:
+                $location.path('/setuplist'); // after clicking on the Complete button it redirects to setuplist, at the end of the wizard.
+                    // But the wizard raises an error, which seems irrelevant (TODO):
                     /*
                      TypeError: Cannot call method 'next' of undefined
                      at $.fn.bootstrapWizard (http://localhost:63342/angularFire-seed-ennio/app/js/jquery.bootstrap.wizard.js:229:47)
@@ -124,7 +124,22 @@ angular.module('swarmSched.controllers', [])
            }
     }])
 
-   .controller('HomeController', ['$scope', 'syncData', function($scope, syncData) {
+    .controller('SolarProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {
+        var solarProfilesRef = new Firebase(FBURL + '/profiles/solarProfiles');
+        $scope.solarProfiles = $firebase(solarProfilesRef);
+    }])
+
+    .controller('TariffProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {
+        var tariffProfilesRef = new Firebase(FBURL + '/profiles/tariffProfiles');
+        $scope.tariffProfiles = $firebase(tariffProfilesRef);
+    }])
+
+    .controller('ApplianceProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {
+        var applianceProfilesRef = new Firebase(FBURL + '/profiles/applianceProfiles');
+        $scope.applianceProfiles = $firebase(applianceProfilesRef);
+    }])
+
+    .controller('HomeController', ['$scope', 'syncData', function($scope, syncData) {
       syncData('syncedValue').$bind($scope, 'syncedValue');
    }])
 

@@ -31,7 +31,7 @@ angular.module('swarmSched.routes', ['ngRoute'])
             controller: 'TariffCtrl'
         });
         $routeProvider
-            .when("/home", {controller: "HomeController", templateUrl: "partials/solar.html"})
+            .when("/home", {controller: "HomeController", templateUrl: "partials/solarprofiles.html"})
             //.when("/login", {controller: "LogInController", templateUrl: "partials/login.html"})
             .when("/newSetup-simulation", {controller: "SimulationSetupController", templateUrl: "partials/newSetup-simulation.html"})
             .when("/profiles/:profileId", {
@@ -40,9 +40,17 @@ angular.module('swarmSched.routes', ['ngRoute'])
             })
             .when("/signup", {controller: "SignUpController", templateUrl: "partials/signup.html"})
 
-            .when('/appliance-profiles', {
-                templateUrl: 'partials/profiles.html',
-                controller: 'TariffCtrl'
+            .when('/solarprofiles', {
+                templateUrl: 'partials/solarprofiles.html',
+                controller: 'SolarProfilesController'
+            })
+            .when('/tariffprofiles', {
+                templateUrl: 'partials/tariffprofiles.html',
+                controller: 'TariffProfilesController'
+            })
+            .when('/applianceprofiles', {
+                templateUrl: 'partials/applianceprofiles.html',
+                controller: 'ApplianceProfilesController'
             })
             .when('/setupwizard', {
                 templateUrl: 'partials/setupwizard.html',
