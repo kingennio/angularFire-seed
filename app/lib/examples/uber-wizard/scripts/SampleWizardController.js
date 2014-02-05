@@ -4,7 +4,7 @@ function ($scope, $q, $timeout) {
   
   $scope.user = {};
   
-  $scope.saveSetup = function() {
+  $scope.saveState = function() {
     var deferred = $q.defer();
     
     $timeout(function() {
@@ -14,7 +14,7 @@ function ($scope, $q, $timeout) {
     return deferred.promise;
   };
   
-  $scope.postSetup = function() {
+  $scope.completeWizard = function() {
     alert('Completed!');
   }
 }];

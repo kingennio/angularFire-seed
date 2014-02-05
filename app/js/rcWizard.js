@@ -112,7 +112,7 @@ var rcWizardDirective = {
           
           // if a rcStep is being used on the current tab, 
           // automatically focus on the first input of the current tab. This
-          // allows for easier keyboard-ony navigation.
+          // allows for easier keyboard-only navigation.
           if (steps.length > currentIndex && steps[currentIndex].element) {
             steps[currentIndex].element.find('input').first().focus();
           }

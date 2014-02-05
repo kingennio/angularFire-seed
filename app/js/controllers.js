@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('swarmSched.controllers', [])
-    .controller('SetupWizardController', ['$scope', '$rootScope', '$routeParams', 'FBURL', '$firebase',
-        function ($scope, $rootScope, $routeParams, FBURL, $firebase) {
+    .controller('SetupWizardController', ['$scope', '$rootScope', '$routeParams', 'FBURL', '$firebase', '$location',
+        function ($scope, $rootScope, $routeParams, FBURL, $firebase, $location) {
             $scope.timeFormat = /^([01]\d|2[0-3]):?([0-5]\d)$/
 
             var setupsRef = new Firebase(FBURL + '/users/ennio/setups');
@@ -39,6 +39,10 @@ angular.module('swarmSched.controllers', [])
                 }
             })
 
+            $scope.setups.$on('loaded', function() {
+                console.log('setups loaded...')
+            })
+
 
             $scope.validateSetup = function() {
                 var appliances = $rootScope.newSetup.applianceProfiles;
@@ -62,7 +66,27 @@ angular.module('swarmSched.controllers', [])
             };
 
             $scope.postSetup = function() {
-                $rootScope.setups.$add($scope.newSetup)
+                $rootScope.setups.$add($scope.newSetup);
+                $location.path('/setuplist'); // dopo la pressione del tasto Complete redirige su setuplist, al termine del wizard.
+                    // Pero' il wizard da' un errore apparentemente trascurabile:
+                    /*
+                     TypeError: Cannot call method 'next' of undefined
+                     at $.fn.bootstrapWizard (http://localhost:63342/angularFire-seed-ennio/app/js/jquery.bootstrap.wizard.js:229:47)
+                     at onForward (http://localhost:63342/angularFire-seed-ennio/app/js/rcWizard.js:81:25)
+                     at http://localhost:63342/angularFire-seed-ennio/app/js/rcWizard.js:55:15
+                     at http://localhost:63342/angularFire-seed-ennio/app/js/rcSubmit.js:73:13
+                     at Array.forEach (native)
+                     at Object.q [as forEach] (https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js:7:280)
+                     at setSubmitComplete (http://localhost:63342/angularFire-seed-ennio/app/js/rcSubmit.js:72:19)
+                     at http://localhost:63342/angularFire-seed-ennio/app/js/rcSubmit.js:120:38
+                     at https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js:113:78
+                     at e (https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js:33:287)	https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js:9373
+                     https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js:9400
+                     https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js:6836
+                     https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js:13569
+                     e	https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js:4109
+                     https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js:4416
+                     */
             }
 
             $scope.cloneSetup = function(setup) {
