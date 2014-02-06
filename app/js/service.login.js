@@ -16,6 +16,7 @@ angular.module('swarmSched.service.login', ['firebase', 'swarmSched.service.fire
              * @returns {*}
              */
             login: function(email, pass, callback) {
+               console.log("loginService.login");
                assertAuth();
                auth.$login('password', {
                   email: email,

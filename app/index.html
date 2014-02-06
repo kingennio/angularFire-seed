@@ -20,6 +20,8 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 <body ng-controller="HomeController" ng-cloak>
 
@@ -51,15 +53,26 @@
                   </li>
               </ul>
 
-              <form class="navbar-form navbar-right" role="signin">
+              <div ng-controller="LoginCtrl"> <!-- TODO: use ng-show-auth -->
+                <form class="navbar-form navbar-right" role="signin">
                   <div class="form-group">
-                      <input type="email" class="form-control input-sm" style="width: 160pt;" placeholder="Email">
-                      <input type="password" class="form-control input-sm" style="width: 160pt;" placeholder="Password">
-                      <button type="submit" class="btn btn-default btn-sm"><i
+                      <span ng-show="auth.user">Logged in as {{auth.user.email}}</span>
+                      <input ng-hide="auth.user" type="email" class="form-control input-sm" style="width: 160pt;" placeholder="Email" ng-model="email">
+                      <input ng-hide="auth.user" type="password" class="form-control input-sm" style="width: 160pt;" placeholder="Password" ng-model="pass">
+                      <button ng-hide="auth.user" type="submit" class="btn btn-default btn-sm" ng-click="login()"><i
                               class="glyphicon glyphicon-user"></i> Sign in
                       </button>
+                      <button ng-hide="auth.user" type="submit" class="btn btn-default btn-sm" ng-click="createAccount()"><i
+                              class="glyphicon glyphicon-user"></i> Sign up
+                      </button>
+                      <button ng-show="auth.user" type="submit" class="btn btn-default btn-sm" ng-click="logout()"><i
+                              class="glyphicon glyphicon-user"></i> Sign out
+                      </button>
+                      <i class="fa fa-spinner fa-spin" ng-show="signing"></i>
+                      <div>{{err}}</div>
                   </div>
-              </form>
+                </form>
+              </div>
           </div>
           <!-- /.navbar-collapse -->
       </div>
@@ -105,9 +118,9 @@
                   </li>
                   <li><a href="#applianceprofiles"><i class="glyphicon glyphicon-stats"></i> Appliance Profiles</a>
                   </li>
-                  <li><a href="#setupwizard"><i class="glyphicon glyphicon-calendar"></i> Setup Wizard</a>
+                  <li ng-show="auth.user"><a href="#setupwizard"><i class="glyphicon glyphicon-calendar"></i> Setup Wizard</a>
                   </li>
-                  <li><a href="#setuplist"><i class="glyphicon glyphicon-list-alt"></i> Setup List</a>
+                  <li ng-show="auth.user"><a href="#setuplist"><i class="glyphicon glyphicon-list-alt"></i> Setup List</a>
                   </li>
               </ul>
 <!--              <div class="list-group">

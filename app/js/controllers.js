@@ -160,6 +160,9 @@ angular.module('swarmSched.controllers', [])
       syncData('syncedValue').$bind($scope, 'syncedValue');
    }])
 
+    .controller('InitialController', ['$scope', function($scope) {
+   }])
+
   .controller('ChatCtrl', ['$scope', 'syncData', function($scope, syncData) {
       $scope.newMessage = null;
 
@@ -179,31 +182,46 @@ angular.module('swarmSched.controllers', [])
    .controller('LoginCtrl', ['$scope', 'loginService', '$location', function($scope, loginService, $location) {
       $scope.email = null;
       $scope.pass = null;
-      $scope.confirm = null;
       $scope.createMode = false;
 
       $scope.login = function(cb) {
+         console.log("LoginCtrl.login");
+         $scope.signing = true;
          $scope.err = null;
          if( !$scope.email ) {
             $scope.err = 'Please enter an email address';
+            $scope.signing = false;
          }
          else if( !$scope.pass ) {
             $scope.err = 'Please enter a password';
+            $scope.signing = false;
          }
          else {
             loginService.login($scope.email, $scope.pass, function(err, user) {
+               console.log("loginService.login.cb");
+               $scope.signing = false;
                $scope.err = err? err + '' : null;
                if( !err ) {
                   cb && cb(user);
+                  $location.path('/setuplist');
                }
             });
          }
       };
 
+      $scope.logout = function() {
+         console.log("logout");
+         $scope.err = null;
+         loginService.logout();
+         $location.path('/initial');
+      };
+
       $scope.createAccount = function() {
+         $scope.signing = true;
          $scope.err = null;
          if( assertValidLoginAttempt() ) {
             loginService.createAccount($scope.email, $scope.pass, function(err, user) {
+               $scope.signing = false;
                if( err ) {
                   $scope.err = err? err + '' : null;
                }
@@ -215,6 +233,8 @@ angular.module('swarmSched.controllers', [])
                   });
                }
             });
+         } else {
+            $scope.signing = false;
          }
       };
 
@@ -224,9 +244,6 @@ angular.module('swarmSched.controllers', [])
          }
          else if( !$scope.pass ) {
             $scope.err = 'Please enter a password';
-         }
-         else if( $scope.pass !== $scope.confirm ) {
-            $scope.err = 'Passwords do not match';
          }
          return !$scope.err;
       }
