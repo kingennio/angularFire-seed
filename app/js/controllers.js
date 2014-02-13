@@ -18,11 +18,12 @@ angular.module('swarmSched.controllers', [])
                     console.log(appliances[p].instances.length)
 
                     while (numberOfInstances > appliances[p].instances.length) {
-                        appliances[p].instances.push({
-                                name: $rootScope.profiles.applianceProfiles[p].id + (1 + appliances[p].instances.length),
-                                startTime: '00:00',
-                                endTime: '23:59'
-                            })
+                        var instance = {
+                            name: $rootScope.profiles.applianceProfiles[p] + (1 + appliances[p].instances.length),
+                            startTime: '00:00',
+                            endTime: '23:59'
+                        };
+                        appliances[p].instances.push(instance);
                     }
                     while (numberOfInstances < appliances[p].instances.length) {
                         appliances[p].instances.pop()
@@ -57,8 +58,10 @@ angular.module('swarmSched.controllers', [])
 
     .controller('SetupListController', ['$scope', '$rootScope', '$routeParams', 'FBURL', '$firebase',
         function ($scope, $rootScope, $routeParams, FBURL, $firebase) {
-            var setupsRef = new Firebase(FBURL + '/users/ennio/setups');
-            var profilesRef = new Firebase(FBURL + '/profiles');
+            var uid = $rootScope.auth.user.uid; // e.g.: simplelogin:3. In https://swarmsched.firebaseio.com/'s JSON
+                                                // simplelogin:3 would be an object under /users.
+            var setupsRef = new Firebase(FBURL + '/users/' + uid + '/setups');
+            var profilesRef = new Firebase(FBURL + '/profiles1');
             var stagingRef = new Firebase(FBURL + '/stagingJobs');
 
             $rootScope.setups = $firebase(setupsRef);
@@ -78,7 +81,7 @@ angular.module('swarmSched.controllers', [])
                 console.log('init profiles loaded...')
 
                 for (p in $rootScope.profiles.tariffProfiles) {
-                    $scope.newSetup.tariffProfile = ($rootScope.profiles.tariffProfiles[p])['id'];
+                    $scope.newSetup.tariffProfile = p;
                     break;
                 }
 
@@ -107,28 +110,41 @@ angular.module('swarmSched.controllers', [])
             })
 
             $scope.cloneSetup = function(setup) {
-                angular.copy(setup, $rootScope.newSetup);
+                $scope.cloneSetup2(setup, $rootScope.newSetup);
+            }
 
-                for (var p in $rootScope.newSetup.applianceProfiles) {
-                    if ($rootScope.newSetup.applianceProfiles[p].numberOfInstances == 0)
-                        $rootScope.newSetup.applianceProfiles[p].instances = [];
+            $scope.cloneSetup2 = function(origSetup, destSetup) {
+                angular.copy(origSetup, destSetup);
+
+                for (var p in destSetup.applianceProfiles) {
+                    if (destSetup.applianceProfiles[p].numberOfInstances == 0)
+                        destSetup.applianceProfiles[p].instances = [];
                 }
 
-                for (var p in $rootScope.newSetup) {
-                    if (p.indexOf('$') == 0 || p == 'runs') delete $rootScope.newSetup[p];
+                for (var p in destSetup) {
+                    if (p.indexOf('$') == 0 || p == 'runs') delete destSetup[p];
                 }
             }
 
            $scope.runSetup = function(setup) {
-               $scope.cloneSetup(setup);
+               var clone = new Object();
+
+               $scope.cloneSetup2(setup, clone);
+
+               clone['user'] = $rootScope.auth.user.uid;
 
                var setupKey = setup.$id;
-               var jobRef = stagingRef.push($rootScope.newSetup);
+
+               clone['setup'] = setupKey;
+
+               var jobRef = stagingRef.push(clone);
                var result = jobRef.child('result');
 
+               setup['jobRef'] = jobRef;
+               setup['running'] = true;
 
                result.on('value', function(snapshot) {
-                   if (!snapshot.val()) return;
+                   if (!snapshot.val()) return; // the first time it sends null! So once cannot be used!
 
                    result.off();
                    var id = snapshot.name();
@@ -136,23 +152,33 @@ angular.module('swarmSched.controllers', [])
                    jobRef.remove();
                    var runs = $rootScope.setups.$child(setupKey + '/runs');
                    runs.$add(value);
-                   alert("run available!");
+
+                   delete setup['running'];
+                   delete setup['jobRef'];
+
+                   $rootScope.messages.push(new Date() + ": run available!");
                });
+           }
+
+           $scope.abortRun = function(setup) {
+               setup['jobRef'].remove();
+               delete setup['running'];
+               delete setup['jobRef'];
            }
     }])
 
     .controller('SolarProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {
-        var solarProfilesRef = new Firebase(FBURL + '/profiles/solarProfiles');
+        var solarProfilesRef = new Firebase(FBURL + '/profiles1/solarProfiles');
         $scope.solarProfiles = $firebase(solarProfilesRef);
     }])
 
     .controller('TariffProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {
-        var tariffProfilesRef = new Firebase(FBURL + '/profiles/tariffProfiles');
+        var tariffProfilesRef = new Firebase(FBURL + '/profiles1/tariffProfiles');
         $scope.tariffProfiles = $firebase(tariffProfilesRef);
     }])
 
     .controller('ApplianceProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {
-        var applianceProfilesRef = new Firebase(FBURL + '/profiles/applianceProfiles');
+        var applianceProfilesRef = new Firebase(FBURL + '/profiles1/applianceProfiles');
         $scope.applianceProfiles = $firebase(applianceProfilesRef);
     }])
 

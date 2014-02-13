@@ -59,14 +59,14 @@
                       <span ng-show="auth.user">Logged in as {{auth.user.email}}</span>
                       <input ng-hide="auth.user" type="email" class="form-control input-sm" style="width: 160pt;" placeholder="Email" ng-model="email">
                       <input ng-hide="auth.user" type="password" class="form-control input-sm" style="width: 160pt;" placeholder="Password" ng-model="pass">
-                      <button ng-hide="auth.user" type="submit" class="btn btn-default btn-sm" ng-click="login()"><i
-                              class="glyphicon glyphicon-user"></i> Sign in
+                      <button ng-hide="auth.user" type="submit" class="btn btn-default btn-sm" ng-click="login()">
+                          <i class="glyphicon glyphicon-user"></i> Sign in
                       </button>
-                      <button ng-hide="auth.user" type="submit" class="btn btn-default btn-sm" ng-click="createAccount()"><i
-                              class="glyphicon glyphicon-user"></i> Sign up
+                      <button ng-hide="auth.user" type="submit" class="btn btn-default btn-sm" ng-click="createAccount()">
+                          <i class="glyphicon glyphicon-user"></i> Sign up
                       </button>
-                      <button ng-show="auth.user" type="submit" class="btn btn-default btn-sm" ng-click="logout()"><i
-                              class="glyphicon glyphicon-user"></i> Sign out
+                      <button ng-show="auth.user" type="submit" class="btn btn-default btn-sm" ng-click="logout()">
+                          <i class="glyphicon glyphicon-user"></i> Sign out
                       </button>
                       <i class="fa fa-spinner fa-spin" ng-show="signing"></i>
                       <div>{{err}}</div>
@@ -123,6 +123,15 @@
                   <li ng-show="auth.user"><a href="#setuplist"><i class="glyphicon glyphicon-list-alt"></i> Setup List</a>
                   </li>
               </ul>
+
+              <div ng-show="messages.length > 0">
+                  <br/>
+                  Messages:
+                  <ul>
+                      <li ng-repeat="message in messages">{{message}}</li>
+                  </ul>
+              </div>
+
 <!--              <div class="list-group">
                   <a href="#home" class="list-group-item">
                     <span class="hidden-md">

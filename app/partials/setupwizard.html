@@ -31,7 +31,7 @@
                         </a>
                     </li>
                 </ul>
-                <br><br>
+                <br/><br/>
 
 
                 <pre> {{ newSetup | json }} </pre>
@@ -42,56 +42,46 @@
 
                         <h3>Select a tariff, and optional solar and (unmovable) forecasted load profiles:</h3>
 
-                        <div ng-repeat="tariff in profiles.tariffProfiles  | orderByPriority">
+                        <div ng-repeat="(tkey,tval) in profiles.tariffProfiles"> <!-- does not work with ordering (" | orderByPriority")! -->
                             <div class="radio">
-                                <label>
-                                    <input type="radio" id="{{tariff.id}}" name="{{tariff.id}}" value="{{tariff.id}}"
-                                           ng-model="newSetup.tariffProfile" checked="{{ newSetup.tariffProfile == tariff.id }}"/>
-
-                                    <h4>This is tariff {{tariff.id}}</h4>
-
-                                </label>
+                                <input type="radio" id="tariffProfile{{tkey}}" name="tariffProfile{{tkey}}" value="{{tval}}"
+                                       ng-model="newSetup.tariffProfile" ng-checked="newSetup.tariffProfile==tval"/>
+                                <h4>This is tariff {{tval}}</h4>
+                                <h4>newSetup.tariffProfile = {{newSetup.tariffProfile}}</h4>
+                                <h4>newSetup.tariffProfile == tval : {{newSetup.tariffProfile == tval}}</h4>
                             </div>
                             <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                <div class="responsive-content" ng-include="'partials/tariff.svg'"/>
+                                <div class="responsive-content" ng-include="'partials/tariff.svg'"></div>
                             </div>
-                            <br><br>
+                            <br/><br/>
                         </div>
                         <pre>{{profiles.tariffProfiles | json}}</pre>
                         <pre>{{newSetup.tariffProfile | json}}</pre>
 
-                        <div ng-repeat="(key,val) in profiles.solarProfiles">  <!-- does not work with ordering! -->
+                        <div ng-repeat="(skey,sval) in profiles.solarProfiles">
                             <div class="radio">
-                                <label>
-                                    <input type="radio" id="{{key}}" name="{{key}}" value="{{key}}"
-                                           ng-model="newSetup.solarProfile" checked="{{ newSetup.solarProfile == key }}"/>
-
-                                    <h4>This is solar {{key}}: value: {{val}}</h4>
-
-                                </label>
+                                <input type="radio" id="solarProfile{{skey}}" name="solarProfile{{skey}}" value="{{sval}}"
+                                       ng-model="newSetup.solarProfile" ng-checked="newSetup.solarProfile == sval"/>
+                                <h4>This is solar {{skey}}: value: {{sval}}</h4>
                             </div>
                             <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                <div class="responsive-content" ng-include="'partials/solar.svg'"/>
+                                <div class="responsive-content" ng-include="'partials/solar.svg'"></div>
                             </div>
-                            <br><br>
+                            <br/><br/>
                         </div>
                         <pre>{{profiles.solarProfiles | json}}</pre>
                         <pre>{{newSetup.solarProfile | json}}</pre>
 
-                        <div ng-repeat="(key,val) in profiles.loadProfiles"> <!-- does not work with ordering! -->
+                        <div ng-repeat="(lkey,lval) in profiles.loadProfiles"> <!-- does not work with ordering! -->
                             <div class="radio">
-                                <label>
-                                    <input type="radio" id="{{key}}" name="{{key}}" value="{{key}}"
-                                           ng-model="newSetup.loadProfile" checked="{{ newSetup.loadProfile == key }}"/>
-
-                                    <h4>This is load {{key}}: value: {{val}}</h4>
-
-                                </label>
+                                <input type="radio" id="loadProfile{{lkey}}" name="loadProfile{{lkey}}" value="{{lval}}"
+                                       ng-model="newSetup.loadProfile" ng-checked="newSetup.loadProfile == lval"/>
+                                <h4>This is load {{lkey}}: value: {{lval}}</h4>
                             </div>
                             <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                <div class="responsive-content" ng-include="'partials/load.svg'"/>
+                                <div class="responsive-content" ng-include="'partials/load.svg'"></div>
                             </div>
-                            <br><br>
+                            <br/><br/>
                         </div>
                         <pre>{{profiles.loadProfiles | json}}</pre>
                         <pre>{{newSetup.loadProfile | json}}</pre>
@@ -105,15 +95,14 @@
                             <div class="col-xs-1">
                                 <input id="{{ profile.id }}" name="{{ profile.id }}" type="number" class="form-control"
                                        ng-required="true" min="0" max="8" ng-model="profile.numberOfInstances"/>
-
                             </div>
-                            <h4>Instances of appliance profile: <strong><em>{{ profiles.applianceProfiles[profile.id].id }}</em></strong></h4>
-                            <br>
+                            <h4>Instances of appliance profile (profile.id = {{profile.id}}): <strong><em>{{ profiles.applianceProfiles[profile.id] }}</em></strong></h4>
+                            <br/>
 
                             <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                <div class="responsive-content" id="svg2" ng-include="'partials/temperature.svg'"/>
+                                <div class="responsive-content" id="svg2" ng-include="'partials/temperature.svg'"></div>
                             </div>
-                            <br><br>
+                            <br/><br/>
                         </div>
 
                     </form>
@@ -126,43 +115,40 @@
                             <div ng-show="profile.numberOfInstances > 0">
 
                                 <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                    <div class="responsive-content" id="svg3" ng-include="'partials/temperature.svg'"/>
+                                    <div class="responsive-content" id="svg3" ng-include="'partials/temperature.svg'"></div>
                                 </div>
 
                                 <ul class="list-group">
-                                    <div ng-repeat="appliance in profile.instances">
-                                        <li class="list-group-item">
-                                            <div class="form-group row">
+                                    <li class="list-group-item" ng-repeat="appliance in profile.instances">
+                                        <div class="form-group row">
 
-                                                <div class="col-xs-10 col-sm-8 col-md-6">
-                                                    <label for="applianceName">Set a name for this appliance</label>
-                                                    <input id="applianceName" name="applianceName" type="text"
-                                                           class="form-control input-md"
-                                                           placeholder="Appliance Name"
-                                                           required ng-model="appliance.name">
-                                                </div>
-
-
-                                                <div class="col-xs-3 col-sm-2">
-                                                    <label for="startAfter">start after</label>
-                                                    <input id="startAfter" name="startAfter" class="form-control"
-                                                           name="startTime"
-                                                           type="time"
-                                                           ng-required="true" ng-model="appliance.startTime"
-                                                           ng-pattern="timeFormat">
-                                                </div>
-
-                                                <div class="col-xs-3 col-sm-2">
-                                                    <label for="endBefore">end before</label>
-                                                    <input id="endBefore" name="endBefore" class="form-control"
-                                                           type="time"
-                                                           ng-required="true"
-                                                           ng-model="appliance.endTime" ng-pattern="timeFormat">
-                                                </div>
+                                            <div class="col-xs-10 col-sm-8 col-md-6">
+                                                <label for="applianceName">Set a name for this appliance</label>
+                                                <input id="applianceName" name="applianceName" type="text"
+                                                       class="form-control input-md"
+                                                       placeholder="Appliance Name"
+                                                       required ng-model="appliance.name">
                                             </div>
-                                        </li>
 
-                                    </div>
+
+                                            <div class="col-xs-3 col-sm-2">
+                                                <label for="startAfter">start after</label>
+                                                <input id="startAfter" class="form-control"
+                                                       name="startTime"
+                                                       type="time"
+                                                       ng-required="true" ng-model="appliance.startTime"
+                                                       ng-pattern="timeFormat">
+                                            </div>
+
+                                            <div class="col-xs-3 col-sm-2">
+                                                <label for="endBefore">end before</label>
+                                                <input id="endBefore" name="endBefore" class="form-control"
+                                                       type="time"
+                                                       ng-required="true"
+                                                       ng-model="appliance.endTime" ng-pattern="timeFormat">
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

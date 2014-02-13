@@ -16,7 +16,10 @@
                             <a class="btn btn-default" ng-click="cloneSetup(setup)"  data-loading-text="Please Wait..."
                                ng-href="#/setupwizard">Clone Setup</a>
 
-                            <a class="btn btn-primary" ng-click="runSetup(setup)" data-loading-text="Please Wait...">New Run</a>
+                            <a class="btn btn-primary" ng-click="runSetup(setup)" ng-hide="setup.running" data-loading-text="Please Wait...">New Run</a>
+                            <a class="btn btn-primary" ng-click="abortRun(setup)" ng-show="setup.running" data-loading-text="Please Wait...">Cancel Run</a>
+                            <i class="fa fa-spinner fa-spin" ng-show="setup.running"></i>
+                            <div ng-show="setup.running">jobRef = {{setup.jobRef.path.m[1]}}</div>
                         </div>
                     </div>
                 </div>

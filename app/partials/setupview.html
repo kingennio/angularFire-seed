@@ -1,3 +1,5 @@
+<div>setup: {{setup.$id}}</div>
+
 <div ng-repeat="profile in setup.applianceProfiles | orderByPriority">
 
     <div ng-show="profile.numberOfInstances > 0">
@@ -24,8 +26,8 @@
     </div>
 </div>
 
-<div ng-repeat="run in setup.runs | orderByPriority">
+<div ng-repeat="(runKey,runVal) in setup.runs">
 
-    run {{ run }} <br>
+    run {{runKey}} : {{runVal}} <br>
 
 </div>
