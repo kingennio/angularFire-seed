@@ -49,6 +49,10 @@ angular.module('swarmSched.routes', ['ngRoute'])
                 templateUrl: 'partials/tariffprofiles.html',
                 controller: 'TariffProfilesController'
             })
+            .when('/loadprofiles', {
+                templateUrl: 'partials/loadprofiles.html',
+                controller: 'LoadProfilesController'
+            })
             .when('/applianceprofiles', {
                 templateUrl: 'partials/applianceprofiles.html',
                 controller: 'ApplianceProfilesController'

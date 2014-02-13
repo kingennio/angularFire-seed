@@ -2,9 +2,12 @@
 
 <div ng-repeat="profile in setup.applianceProfiles | orderByPriority">
 
+    <div>profile: {{profile}}</div>
+    <div>profile.id: {{profile.id}}</div>
+
     <div ng-show="profile.numberOfInstances > 0">
         <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-            <div class="responsive-content" ng-include="'partials/temperature.svg'"/>
+            <div class="responsive-content" ng-include="profileImage(profile.id)"/>
         </div>
 
         <table class="table table-hover">
@@ -27,7 +30,7 @@
 </div>
 
 <div ng-repeat="(runKey,runVal) in setup.runs">
-
-    run {{runKey}} : {{runVal}} <br>
-
+    <h3>Runs</h3>
+    run {{runKey}} : {{runVal}} <br/>
+    <img src="img/scheduleresult.svg"/>
 </div>

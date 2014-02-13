@@ -3,4 +3,11 @@
         <h1>Tariff Profiles</h1>
     </header>
     <pre> {{ tariffProfiles | json }} </pre>
+    <div ng-repeat="(tkey,tval) in profiles.tariffProfiles"> <!-- does not work with ordering (" | orderByPriority")! -->
+        <h4>This is tariff {{tval}}</h4>
+        <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+            <div class="responsive-content" ng-include="profileImage(tkey)"></div>
+        </div>
+        <br/><br/>
+    </div>
 </section>

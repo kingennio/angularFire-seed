@@ -51,7 +51,7 @@
                                 <h4>newSetup.tariffProfile == tval : {{newSetup.tariffProfile == tval}}</h4>
                             </div>
                             <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                <div class="responsive-content" ng-include="'partials/tariff.svg'"></div>
+                                <div class="responsive-content" ng-include="profileImage(tkey)"></div>
                             </div>
                             <br/><br/>
                         </div>
@@ -65,7 +65,7 @@
                                 <h4>This is solar {{skey}}: value: {{sval}}</h4>
                             </div>
                             <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                <div class="responsive-content" ng-include="'partials/solar.svg'"></div>
+                                <div class="responsive-content" ng-include="profileImage(skey)"></div>
                             </div>
                             <br/><br/>
                         </div>
@@ -79,7 +79,7 @@
                                 <h4>This is load {{lkey}}: value: {{lval}}</h4>
                             </div>
                             <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                <div class="responsive-content" ng-include="'partials/load.svg'"></div>
+                                <div class="responsive-content" ng-include="profileImage(lkey)"></div>
                             </div>
                             <br/><br/>
                         </div>
@@ -100,7 +100,7 @@
                             <br/>
 
                             <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                <div class="responsive-content" id="svg2" ng-include="'partials/temperature.svg'"></div>
+                                <div class="responsive-content" id="svg2" ng-include="profileImage(profile.id)"></div>
                             </div>
                             <br/><br/>
                         </div>
@@ -115,7 +115,7 @@
                             <div ng-show="profile.numberOfInstances > 0">
 
                                 <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                    <div class="responsive-content" id="svg3" ng-include="'partials/temperature.svg'"></div>
+                                    <div class="responsive-content" id="svg3" ng-include="profileImage(profile.id)"></div>
                                 </div>
 
                                 <ul class="list-group">

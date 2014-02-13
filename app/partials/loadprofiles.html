@@ -1,0 +1,14 @@
+<section class="container" ng-cloak>
+    <header>
+        <h1>Load Profiles</h1>
+    </header>
+    <pre> {{ loadProfiles | json }} </pre>
+    <div ng-repeat="(lkey,lval) in profiles.loadProfiles"> <!-- does not work with ordering! -->
+        <h4>This is load {{lkey}}: value: {{lval}}</h4>
+
+        <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+            <div class="responsive-content" ng-include="profileImage(lkey)"></div>
+        </div>
+        <br/><br/>
+    </div>
+</section>

@@ -3,4 +3,11 @@
         <h1>Appliance Profiles</h1>
     </header>
     <pre> {{ applianceProfiles | json }} </pre>
+    <div ng-repeat="(profileKey,profileVal) in profiles.applianceProfiles">
+        <h4>Appliance profile (profileKey = {{profileKey}}): <strong><em>{{ profiles.applianceProfiles[profileKey] }}</em></strong></h4>
+        <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+            <div class="responsive-content" id="svg2" ng-include="profileImage(profileKey)"></div>
+        </div>
+        <br/><br/>
+    </div>
 </section>

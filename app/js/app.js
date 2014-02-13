@@ -20,4 +20,7 @@ angular.module('swarmSched',
         $rootScope.auth = loginService.init('/login');
         $rootScope.FBURL = FBURL;
         $rootScope.messages = [];
+        $rootScope.profileImage = function(img) {
+            return "img/" + img + ".svg";
+        }
     }])

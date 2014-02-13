@@ -177,6 +177,11 @@ angular.module('swarmSched.controllers', [])
         $scope.tariffProfiles = $firebase(tariffProfilesRef);
     }])
 
+    .controller('LoadProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {
+        var loadProfilesRef = new Firebase(FBURL + '/profiles1/loadProfiles');
+        $scope.loadProfiles = $firebase(loadProfilesRef);
+    }])
+
     .controller('ApplianceProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {
         var applianceProfilesRef = new Firebase(FBURL + '/profiles1/applianceProfiles');
         $scope.applianceProfiles = $firebase(applianceProfilesRef);
