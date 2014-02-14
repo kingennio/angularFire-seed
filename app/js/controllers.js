@@ -11,8 +11,13 @@ angular.module('swarmSched.controllers', [])
 
             $scope.validateSetup = function() {
                 var appliances = $rootScope.newSetup.applianceProfiles;
+
+                var totalNumberOfInstances = 0;
+
                 for (var p in appliances) {
                     var numberOfInstances = appliances[p].numberOfInstances;
+
+                    totalNumberOfInstances = totalNumberOfInstances + numberOfInstances;
 
                     console.log(numberOfInstances)
                     console.log(appliances[p].instances.length)
@@ -28,6 +33,9 @@ angular.module('swarmSched.controllers', [])
                     while (numberOfInstances < appliances[p].instances.length) {
                         appliances[p].instances.pop()
                     }
+                }
+                if (totalNumberOfInstances == 0) {
+                    return false; // TODO: does not make the wizard stop!
                 }
             };
 

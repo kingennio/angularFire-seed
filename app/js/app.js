@@ -63,4 +63,6 @@ angular.module('swarmSched',
                 }
             }
         })
+
+        $rootScope.sampleResult = $firebase(new Firebase(FBURL + '/vattelapesca'));
     }])

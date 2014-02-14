@@ -29,8 +29,16 @@
     </div>
 </div>
 
+<h3 ng-show="setup.runs-length > 0">Runs</h3>
 <div ng-repeat="(runKey,runVal) in setup.runs">
-    <h3>Runs</h3>
-    run {{runKey}} : {{runVal}} <br/>
+    <h4>Run {{runKey}} : {{runVal}}</h4>
     <img src="img/scheduleresult.svg"/>
+    <h5>Statistics</h5>
+    <table>
+        <tr ng-repeat="(k,v) in sampleResult.result.statistics">
+            <td>{{k}}</td>
+            <td>{{v}}</td>
+        </tr>
+    </table>
+    <pre>{{sampleResult | json}}</pre>
 </div>
