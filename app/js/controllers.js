@@ -60,52 +60,13 @@ angular.module('swarmSched.controllers', [])
         function ($scope, $rootScope, $routeParams, FBURL, $firebase) {
             var uid = $rootScope.auth.user.uid; // e.g.: simplelogin:3. In https://swarmsched.firebaseio.com/'s JSON
                                                 // simplelogin:3 would be an object under /users.
+
             var setupsRef = new Firebase(FBURL + '/users/' + uid + '/setups');
-            var profilesRef = new Firebase(FBURL + '/profiles1');
             var stagingRef = new Firebase(FBURL + '/stagingJobs');
 
             $rootScope.setups = $firebase(setupsRef);
-            $rootScope.profiles = $firebase(profilesRef);
 
-            $rootScope.newSetup = $rootScope.newSetup || { // sample json setup in
-                // todo: add upperPowerThreshold.
-                // E.g.:
-                // "upperPowerThreshold": 2000
-                applianceProfiles: {}
-            }
-
-            $scope.profiles.$on('loaded', function() {
-                for (var p in  $rootScope.newSetup.applianceProfiles)
-                    return;
-
-                console.log('init profiles loaded...')
-
-                for (p in $rootScope.profiles.tariffProfiles) {
-                    $scope.newSetup.tariffProfile = p;
-                    break;
-                }
-
-                for (p in $rootScope.profiles.solarProfiles) {
-                    $scope.newSetup.solarProfile = p;
-                    break;
-                }
-
-                for (p in $rootScope.profiles.loadProfiles) {
-                    $scope.newSetup.loadProfile = p;
-                    break;
-                }
-
-                var applianceProfiles = $rootScope.profiles.applianceProfiles;
-                for (var p in applianceProfiles) {
-                    $rootScope.newSetup.applianceProfiles[p] = {
-                        id: p,
-                        numberOfInstances: 0,
-                        instances: []
-                    }
-                }
-            })
-
-            $scope.setups.$on('loaded', function() {
+            $rootScope.setups.$on('loaded', function() {
                 console.log('setups loaded...')
             })
 

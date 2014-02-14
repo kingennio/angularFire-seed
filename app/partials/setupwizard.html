@@ -40,8 +40,16 @@
 
                     <form class="tab-pane active" id="tariffSelection" name="tariffSelectionForm" rc-step novalidate>
 
-                        <h3>Select a tariff, and optional solar and (unmovable) forecasted load profiles:</h3>
+                        <h3>Select a upper power threshold, tariff, and optional solar and (unmovable) forecasted load profiles:</h3>
 
+                        <div>
+                            Upper power threshold (1000 W - 10000 W)
+                            <input id="upperPowerThreshold" name="upperPowerThreshold" class="form-control"
+                                   type="number"
+                                   ng-required="true"
+                                   value="2000"
+                                   ng-model="newSetup.upperPowerThreshold">
+                        </div>
                         <div ng-repeat="(tkey,tval) in profiles.tariffProfiles"> <!-- does not work with ordering (" | orderByPriority")! -->
                             <div class="radio">
                                 <input type="radio" id="tariffProfile{{tkey}}" name="tariffProfile{{tkey}}" value="{{tval}}"
