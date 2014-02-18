@@ -7,6 +7,12 @@ angular.module('swarmSched.controllers', [])
         function ($scope, $rootScope, $routeParams, FBURL, $firebase, $location) {
             $scope.setup = $rootScope.newSetup; // to make setupview.html work within setupwizard.html
 
+            $scope.generateSetupName = function() {
+                $scope.setup.name = $rootScope.generateTimestamp();
+            };
+
+            $scope.generateSetupName();
+
             $scope.timeFormat = /^([01]\d|2[0-3]):?([0-5]\d)$/
 
             $scope.validateSetup = function() {
@@ -61,7 +67,7 @@ angular.module('swarmSched.controllers', [])
                      e	https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js:4109
                      https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js:4416
                      */
-            }
+            };
     }])
 
     .controller('SetupListController', ['$scope', '$rootScope', '$routeParams', 'FBURL', '$firebase',
@@ -120,12 +126,16 @@ angular.module('swarmSched.controllers', [])
                    var value = snapshot.val();
                    jobRef.remove();
                    var runs = $rootScope.setups.$child(setupKey + '/runs');
-                   runs.$add(value);
+                   runs.$add({
+                       result: value,
+                       name: $rootScope.generateTimestamp()
+                   });
 
                    delete setup['running'];
                    delete setup['jobRef'];
 
-                   $rootScope.messages.push(new Date() + ": run available!");
+                   var date = new Date();
+                   $rootScope.messages.push(date.getFullYear() + '-' + $rootScope.pad(date.getMonth() + 1, 2) + '-' + $rootScope.pad(date.getDate(), 2) + ' ' + $rootScope.pad(date.getHours(), 2) + '.' + $rootScope.pad(date.getMinutes(), 2) + ": run available!");
                });
            }
 

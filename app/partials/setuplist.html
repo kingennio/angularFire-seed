@@ -6,7 +6,7 @@
 
         <ul class="row" ng-repeat="setup in setups | orderByPriority">
             <li>
-                <a ng-model="clicked" ng-init="clicked=false" ng-click="clicked = !clicked">{{setup.$id}}</a>
+                <a ng-model="clicked" ng-init="clicked=false" ng-click="clicked = !clicked" title="{{setup.$id}}">{{setup.name || setup.$id}}</a>
 
                 <div ng-if="clicked" class="animate-if">
                     <div class="col-xs-12 col-sm-11 col-md-10">

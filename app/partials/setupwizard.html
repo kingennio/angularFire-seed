@@ -184,6 +184,17 @@
 
                     <form class="tab-pane" id="setupSummary" name="setupSummaryForm" rc-submit="postSetup()" rc-step>
                         <h2>Summary</h2>
+
+                        <div class="bs-docs-example">
+                            <h4><b>Name</b></h4>
+                            <div>
+                                <input id="setupName" name="setupName" class="form-control"
+                                       type="text"
+                                       ng-required="true"
+                                       ng-model="newSetup.name">
+                            </div>
+                        </div>
+
                         <div ng-include="'partials/setupview.html'"></div>
                     </form>
                 </div>

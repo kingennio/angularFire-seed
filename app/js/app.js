@@ -65,4 +65,16 @@ angular.module('swarmSched',
         })
 
         $rootScope.sampleResult = $firebase(new Firebase(FBURL + '/vattelapesca'));
+
+        $rootScope.pad = function pad(num, size) {
+            var s = num+"";
+            while (s.length < size) s = "0" + s;
+            return s;
+        };
+
+        $rootScope.generateTimestamp = function() {
+            var date = new Date();
+            var timestamp = date.getFullYear() + '-' + $rootScope.pad(date.getMonth() + 1, 2) + '-' + $rootScope.pad(date.getDate(), 2) + '_' + $rootScope.pad(date.getHours(), 2) + '.' + $rootScope.pad(date.getMinutes(), 2);
+            return timestamp;
+        };
     }])
