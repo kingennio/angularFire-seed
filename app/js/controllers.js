@@ -40,7 +40,7 @@ angular.module('swarmSched.controllers', [])
             };
 
             $scope.postSetup = function() {
-                $rootScope.setups.$add($scope.newSetup);
+                $rootScope.setups.$add($scope.newSetup); // $rootScope.setups is initialized because the first loaded partial is setuplist.html
                 $location.path('/setuplist'); // after clicking on the Complete button it redirects to setuplist, at the end of the wizard.
                     // But the wizard raises an error, which seems irrelevant (TODO):
                     /*
