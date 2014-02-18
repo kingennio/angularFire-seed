@@ -75,5 +75,5 @@ angular.module('swarmSched.routes', ['ngRoute'])
 
             })
 
-      $routeProvider.otherwise({redirectTo: '/initial'});
+      $routeProvider.otherwise({redirectTo: '/setuplist'});
    }]);

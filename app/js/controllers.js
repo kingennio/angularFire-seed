@@ -213,7 +213,7 @@ angular.module('swarmSched.controllers', [])
          console.log("logout");
          $scope.err = null;
          loginService.logout();
-         $location.path('/initial');
+         $location.path('/seuplist');
       };
 
       $scope.createAccount = function() {

@@ -2,10 +2,9 @@
     <header>
         <h1>Solar Profiles</h1>
     </header>
-    <pre> {{ solarProfiles | json }} </pre>
+    <!--<pre> {{ solarProfiles | json }} </pre>-->
     <div ng-repeat="(skey,sval) in profiles.solarProfiles">
-        <h4>This is solar {{skey}}: value: {{sval}}</h4>
-
+        <h4>{{skey}}</h4>
         <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
             <div class="responsive-content" ng-include="profileImage(skey)"></div>
         </div>

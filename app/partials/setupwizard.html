@@ -9,7 +9,7 @@
                     <li class="active">
                         <a class="active" href="#tariffSelection" data-toggle="tab">
                             <span class="badge">1</span>
-                            <span>Tariff, Forecast, and Solar Profiles</span>
+                            <span>Tariff, Solar, and Load Profiles</span>
                         </a>
                     </li>
                     <li>
@@ -21,13 +21,13 @@
                     <li>
                         <a href="#applianceConfiguration" data-toggle="tab">
                             <span class="badge">3</span>
-                            <span>Appliances Configuration</span>
+                            <span>Appliance Config</span>
                         </a>
                     </li>
                     <li>
                         <a href="#setupSummary" data-toggle="tab">
                             <span class="badge">4</span>
-                            <span>Setup Summary</span>
+                            <span>Summary</span>
                         </a>
                     </li>
                 </ul>
@@ -40,71 +40,94 @@
 
                     <form class="tab-pane active" id="tariffSelection" name="tariffSelectionForm" rc-step novalidate>
 
-                        <h3>Select a upper power threshold, tariff, and optional solar and (unmovable) forecasted load profiles:</h3>
+                        <h3>Tariff, Solar, and Load Profiles</h3> <!-- Select a upper power threshold, tariff, and optional solar and (unmovable) forecasted load profiles -->
 
-                        <div>
-                            Upper power threshold (1000 W - 10000 W)
-                            <input id="upperPowerThreshold" name="upperPowerThreshold" class="form-control"
-                                   type="number"
-                                   ng-required="true"
-                                   value="2000"
-                                   ng-model="newSetup.upperPowerThreshold">
-                        </div>
-                        <div ng-repeat="(tkey,tval) in profiles.tariffProfiles"> <!-- does not work with ordering (" | orderByPriority")! -->
-                            <div class="radio">
-                                <input type="radio" id="tariffProfile{{tkey}}" name="tariffProfile{{tkey}}" value="{{tval}}"
-                                       ng-model="newSetup.tariffProfile" ng-checked="newSetup.tariffProfile==tval"/>
-                                <h4>This is tariff {{tval}}</h4>
-                                <h4>newSetup.tariffProfile = {{newSetup.tariffProfile}}</h4>
-                                <h4>newSetup.tariffProfile == tval : {{newSetup.tariffProfile == tval}}</h4>
+                        <div class="bs-docs-example">
+                            <h4><b>Upper power threshold (1000 W - 10000 W)</b></h4>
+                            <div>
+                                <input id="upperPowerThreshold" name="upperPowerThreshold" class="form-control"
+                                       type="number"
+                                       ng-required="true"
+                                       value="2000"
+                                       ng-model="newSetup.upperPowerThreshold">
                             </div>
-                            <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                <div class="responsive-content" ng-include="profileImage(tkey)"></div>
-                            </div>
-                            <br/><br/>
                         </div>
-                        <pre>{{profiles.tariffProfiles | json}}</pre>
-                        <pre>{{newSetup.tariffProfile | json}}</pre>
 
-                        <div ng-repeat="(skey,sval) in profiles.solarProfiles">
-                            <div class="radio">
-                                <input type="radio" id="solarProfile{{skey}}" name="solarProfile{{skey}}" value="{{sval}}"
-                                       ng-model="newSetup.solarProfile" ng-checked="newSetup.solarProfile == sval"/>
-                                <h4>This is solar {{skey}}: value: {{sval}}</h4>
+                        <div class="bs-docs-example">
+                            <h4><b>Tariff</b></h4>
+                            <div ng-repeat="(tkey,tval) in profiles.tariffProfiles">
+                                <!-- does not work with ordering (" | orderByPriority")! -->
+                                <div class="radio">
+                                    <input type="radio" id="tariffProfile{{tkey}}" name="tariffProfile{{tkey}}"
+                                           value="{{tval}}"
+                                           ng-model="newSetup.tariffProfile" ng-checked="newSetup.tariffProfile==tval"/>
+                                    <h5>{{tval}}</h5>
+                                    <!--
+                                                                    <h4>newSetup.tariffProfile = {{newSetup.tariffProfile}}</h4>
+                                                                    <h4>newSetup.tariffProfile == tval : {{newSetup.tariffProfile == tval}}</h4>
+                                    -->
+                                </div>
+                                <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+                                    <div class="responsive-content" ng-include="profileImage(tkey)"></div>
+                                </div>
+                                <br/><br/>
                             </div>
-                            <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                <div class="responsive-content" ng-include="profileImage(skey)"></div>
-                            </div>
-                            <br/><br/>
+                            <!--
+                                                    <pre>{{profiles.tariffProfiles | json}}</pre>
+                                                    <pre>{{newSetup.tariffProfile | json}}</pre>
+                            -->
                         </div>
-                        <pre>{{profiles.solarProfiles | json}}</pre>
-                        <pre>{{newSetup.solarProfile | json}}</pre>
 
-                        <div ng-repeat="(lkey,lval) in profiles.loadProfiles"> <!-- does not work with ordering! -->
-                            <div class="radio">
-                                <input type="radio" id="loadProfile{{lkey}}" name="loadProfile{{lkey}}" value="{{lval}}"
-                                       ng-model="newSetup.loadProfile" ng-checked="newSetup.loadProfile == lval"/>
-                                <h4>This is load {{lkey}}: value: {{lval}}</h4>
+                        <div class="bs-docs-example">
+                            <h4><b>Solar</b></h4>
+                            <div ng-repeat="(skey,sval) in profiles.solarProfiles">
+                                <div class="radio">
+                                    <input type="radio" id="solarProfile{{skey}}" name="solarProfile{{skey}}"
+                                           value="{{sval}}"
+                                           ng-model="newSetup.solarProfile" ng-checked="newSetup.solarProfile == sval"/>
+                                    <h5>{{skey}}</h5>
+                                </div>
+                                <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+                                    <div class="responsive-content" ng-include="profileImage(skey)"></div>
+                                </div>
+                                <br/><br/>
                             </div>
-                            <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-                                <div class="responsive-content" ng-include="profileImage(lkey)"></div>
-                            </div>
-                            <br/><br/>
+                            <!--
+                                                    <pre>{{profiles.solarProfiles | json}}</pre>
+                                                    <pre>{{newSetup.solarProfile | json}}</pre>
+                            -->
                         </div>
-                        <pre>{{profiles.loadProfiles | json}}</pre>
-                        <pre>{{newSetup.loadProfile | json}}</pre>
+
+                        <div class="bs-docs-example">
+                            <h4><b>Load</b></h4>
+                            <div ng-repeat="(lkey,lval) in profiles.loadProfiles"> <!-- does not work with ordering! -->
+                                <div class="radio">
+                                    <input type="radio" id="loadProfile{{lkey}}" name="loadProfile{{lkey}}"
+                                           value="{{lval}}"
+                                           ng-model="newSetup.loadProfile" ng-checked="newSetup.loadProfile == lval"/>
+                                    <h5>{{lkey}}: value: {{lval}}</h5>
+                                </div>
+                                <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+                                    <div class="responsive-content" ng-include="profileImage(lkey)"></div>
+                                </div>
+                                <br/><br/>
+                            </div>
+                            <!--
+                                                    <pre>{{profiles.loadProfiles | json}}</pre>
+                                                    <pre>{{newSetup.loadProfile | json}}</pre>
+                            -->
+                        </div>
 
                     </form>
 
                     <form class="tab-pane" id="applianceSelection" name="applianceSelectionForm" rc-submit="validateSetup()" rc-step>
-                        <h2>Appliance selection</h2>
-
+                        <h2>Appliance Profiles</h2>
                         <div ng-repeat="profile in newSetup.applianceProfiles">
                             <div class="col-xs-1">
                                 <input id="{{ profile.id }}" name="{{ profile.id }}" type="number" class="form-control"
                                        ng-required="true" min="0" max="8" ng-model="profile.numberOfInstances"/>
                             </div>
-                            <h4>Instances of appliance profile: <strong><em>{{ profiles.applianceProfiles[profile.id] }}</em></strong></h4>
+                            <h4>Instances of <strong><em>{{ profiles.applianceProfiles[profile.id] }}</em></strong></h4>
                             <br/>
 
                             <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
@@ -112,13 +135,10 @@
                             </div>
                             <br/><br/>
                         </div>
-
                     </form>
 
-
                     <form class="tab-pane" id="applianceConfiguration" name="applianceConfigurationForm" rc-submit rc-step>
-                        <h2>Appliance configuration</h2>
-
+                        <h2>Appliance Config</h2>
                         <div ng-repeat="profile in newSetup.applianceProfiles">
                             <div ng-show="profile.numberOfInstances > 0">
 
@@ -140,7 +160,7 @@
 
 
                                             <div class="col-xs-3 col-sm-2">
-                                                <label for="startAfter">start after</label>
+                                                <label for="startAfter">Start after</label>
                                                 <input id="startAfter" class="form-control"
                                                        name="startTime"
                                                        type="time"
@@ -149,7 +169,7 @@
                                             </div>
 
                                             <div class="col-xs-3 col-sm-2">
-                                                <label for="endBefore">end before</label>
+                                                <label for="endBefore">End before</label>
                                                 <input id="endBefore" name="endBefore" class="form-control"
                                                        type="time"
                                                        ng-required="true"
@@ -163,9 +183,8 @@
                     </form>
 
                     <form class="tab-pane" id="setupSummary" name="setupSummaryForm" rc-submit="postSetup()" rc-step>
-
+                        <h2>Summary</h2>
                         <div ng-include="'partials/setupview.html'"></div>
-
                     </form>
                 </div>
                 <div class="form-group">

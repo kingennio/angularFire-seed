@@ -1,9 +1,11 @@
-<div>setup: {{setup.$id}}</div>
+<!--<div>setup: {{setup.$id}}</div>-->
 
 <div ng-repeat="profile in setup.applianceProfiles | orderByPriority">
 
+<!--
     <div>profile: {{profile}}</div>
     <div>profile.id: {{profile.id}}</div>
+-->
 
     <div ng-show="profile.numberOfInstances > 0">
         <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
@@ -31,14 +33,14 @@
 
 <h3 ng-show="setup.runs-length > 0">Runs</h3>
 <div ng-repeat="(runKey,runVal) in setup.runs">
-    <h4>Run {{runKey}} : {{runVal}}</h4>
+    <hr/>
+    <h2>Run {{$index + 1}} ({{runKey}})</h2>
     <img src="img/scheduleresult.svg"/>
-    <h5>Statistics</h5>
-    <table>
+    <h3>Statistics</h3>
+    <table class="table table-bordered">
         <tr ng-repeat="(k,v) in sampleResult.result.statistics">
             <td>{{k}}</td>
             <td>{{v}}</td>
         </tr>
     </table>
-    <pre>{{sampleResult | json}}</pre>
 </div>
