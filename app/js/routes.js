@@ -32,8 +32,6 @@ angular.module('swarmSched.routes', ['ngRoute'])
         });
         $routeProvider
             .when("/home", {controller: "HomeController", templateUrl: "partials/solarprofiles.html"})
-            .when("/initial", {controller: "InitialController", templateUrl: "partials/initial.html"})
-            //.when("/login", {controller: "LogInController", templateUrl: "partials/login.html"})
             .when("/newSetup-simulation", {controller: "SimulationSetupController", templateUrl: "partials/newSetup-simulation.html"})
             .when("/profiles1/:profileId", {
                 controller: "PowerProfileController",

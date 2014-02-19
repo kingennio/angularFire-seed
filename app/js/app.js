@@ -10,7 +10,7 @@ angular.module('swarmSched',
     .constant('version', '0.6')
 
     // where to redirect users if they need to authenticate (see module.routeSecurity)
-    .constant('loginRedirectPath', '/login') // setting loginRedirectPath to /initial causes infdif (infinite digest) error in angularJS!?!
+    .constant('loginRedirectPath', '/login')
 
     // your Firebase URL goes here
     .constant('FBURL', 'https://swarmsched.firebaseio.com')
