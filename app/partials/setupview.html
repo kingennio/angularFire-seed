@@ -31,11 +31,10 @@
     </div>
 </div>
 
-<h3 ng-show="setup.runs-length > 0">Runs</h3> <!-- TODO: setup.runs-length? -->
 <div ng-repeat="(runKey,runVal) in setup.runs">
-    <hr/>
-    <h2 title="{{runKey}}">Run {{$index + 1}}: {{runVal.name || runKey}}</h2>
+    <h2 title="{{runKey}}">Run {{$index + 1}}/{{countFields(setup.runs)}}: {{runVal.name || runKey}}</h2>
     <img src="img/scheduleresult.svg"/>
+    <img src="img/evolution.svg"/>
     <h3>Statistics</h3>
     <table class="table table-bordered table-striped">
         <tr ng-repeat="(k,v) in sampleResult.result.statistics">
@@ -43,4 +42,5 @@
             <td>{{v}}</td>
         </tr>
     </table>
+    <hr/>
 </div>

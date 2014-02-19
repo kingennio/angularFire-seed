@@ -143,7 +143,19 @@ angular.module('swarmSched.controllers', [])
                setup['jobRef'].remove();
                delete setup['running'];
                delete setup['jobRef'];
-           }
+           };
+
+           $scope.getStagingJobUrl = function(stagingJob) {
+               var url = FBURL + '/stagingJobs/' + stagingJob;
+               return url;
+           };
+
+           $scope.countFields = function(obj) {
+               if (obj == undefined || obj == null) {
+                   return 0;
+               }
+               return Object.keys(obj).length;
+           };
     }])
 
     .controller('SolarProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {
@@ -223,7 +235,7 @@ angular.module('swarmSched.controllers', [])
          console.log("logout");
          $scope.err = null;
          loginService.logout();
-         $location.path('/seuplist');
+         $location.path('/setuplist');
       };
 
       $scope.createAccount = function() {
