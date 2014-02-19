@@ -30,7 +30,8 @@ angular.module('swarmSched',
 
         $rootScope.newSetup = $rootScope.newSetup || {
             applianceProfiles: {},
-            upperPowerThreshold: 2000
+            upperPowerThreshold: 2000,
+            runTime: 15
         }
 
         $rootScope.profiles.$on('loaded', function() {

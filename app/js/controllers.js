@@ -7,11 +7,7 @@ angular.module('swarmSched.controllers', [])
         function ($scope, $rootScope, $routeParams, FBURL, $firebase, $location) {
             $scope.setup = $rootScope.newSetup; // to make setupview.html work within setupwizard.html
 
-            $scope.generateSetupName = function() {
-                $scope.setup.name = $rootScope.generateTimestamp();
-            };
-
-            $scope.generateSetupName();
+            $scope.setup.name = $rootScope.generateTimestamp();
 
             $scope.timeFormat = /^([01]\d|2[0-3]):?([0-5]\d)$/
 
