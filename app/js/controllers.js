@@ -5,14 +5,46 @@
 angular.module('swarmSched.controllers', [])
     .controller('SetupWizardController', ['$scope', '$rootScope', '$routeParams', 'FBURL', '$firebase', '$location',
         function ($scope, $rootScope, $routeParams, FBURL, $firebase, $location) {
-            $scope.setup = $rootScope.newSetup; // to make setupview.html work within setupwizard.html
+            if (Object.keys($rootScope.clonedSetup).length > 0) {
+                $scope.setup = $rootScope.clonedSetup;
+                $scope.setup.name = $rootScope.generateTimestamp();
+                $rootScope.clonedSetup = new Object();
+            } else {
+                $scope.setup = {
+                    name: $rootScope.generateTimestamp(),
+                    applianceProfiles: {},
+                    upperPowerThreshold: 2000
+                };
 
-            $scope.setup.name = $rootScope.generateTimestamp();
+                for (var p in $rootScope.profiles.tariffProfiles) {
+                    $scope.setup.tariffProfile = p;
+                    break;
+                }
+
+                for (p in $rootScope.profiles.solarProfiles) {
+                    $scope.setup.solarProfile = p;
+                    break;
+                }
+
+                for (p in $rootScope.profiles.loadProfiles) {
+                    $scope.setup.loadProfile = p;
+                    break;
+                }
+
+                var applianceProfiles = $rootScope.profiles.applianceProfiles;
+                for (var p in applianceProfiles) {
+                    $scope.setup.applianceProfiles[p] = {
+                        id: p,
+                        numberOfInstances: 0,
+                        instances: []
+                    }
+                }
+            }
 
             $scope.timeFormat = /^([01]\d|2[0-3]):?([0-5]\d)$/
 
             $scope.validateSetup = function() {
-                var appliances = $rootScope.newSetup.applianceProfiles;
+                var appliances = $scope.setup.applianceProfiles;
 
                 var totalNumberOfInstances = 0;
 
@@ -42,7 +74,7 @@ angular.module('swarmSched.controllers', [])
             };
 
             $scope.postSetup = function() {
-                $rootScope.setups.$add($scope.newSetup); // $rootScope.setups is initialized because the first loaded partial is setuplist.html
+                $rootScope.setups.$add($scope.setup); // $rootScope.setups is initialized because the first loaded partial is setuplist.html
                 $location.path('/setuplist'); // after clicking on the Complete button it redirects to setuplist, at the end of the wizard.
                     // But the wizard raises an error, which seems irrelevant (TODO):
                     /*
@@ -78,13 +110,9 @@ angular.module('swarmSched.controllers', [])
 
             $rootScope.setups.$on('loaded', function() {
                 console.log('setups loaded...')
-            })
+            });
 
-            $scope.cloneSetup = function(setup) {
-                $scope.cloneSetup2(setup, $rootScope.newSetup);
-            }
-
-            $scope.cloneSetup2 = function(origSetup, destSetup) {
+            $scope.cloneSetup = function(origSetup, destSetup) {
                 angular.copy(origSetup, destSetup);
 
                 for (var p in destSetup.applianceProfiles) {
@@ -95,24 +123,47 @@ angular.module('swarmSched.controllers', [])
                 for (var p in destSetup) {
                     if (p.indexOf('$') == 0 || p == 'runs') delete destSetup[p];
                 }
-            }
+            };
 
-           $scope.runSetup = function(setup) {
-               var clone = new Object();
+            $scope.runningSetup = new Object();
 
-               $scope.cloneSetup2(setup, clone);
+            $scope.initRunningSetup = function() {
+                $scope.runningSetup.scale = 0.1;
+                $scope.runningSetup.genderRatio = 0.5;
+                $scope.runningSetup.levyAlpha = 1.5;
+                $scope.runningSetup.temperature = 1;
+                $scope.runningSetup.runningTime = 6;
+                $scope.runningSetup.swarmSize = 10;
+                $scope.runningSetup.totalStats = 100;
+                $scope.runningSetup.strategy = 'butterfly';
+            };
 
-               clone['user'] = $rootScope.auth.user.uid;
+            $scope.initRunningSetup(); // runningSetup must be filled with valid values from the beginning,
+            // otherwise, the input field in the html raise an "invalid" error
+
+            $scope.configureRun = function (setup) {
+                console.log("configureRun()");
+
+                $scope.runningSetup = new Object();
+                $scope.cloneSetup(setup, $scope.runningSetup);
+                $scope.initRunningSetup();
+
+                $scope.runningSetup.configuringRun = true; // for showing the right controls in the form in the html
+            };
+
+            $scope.runSetup = function(setup) {
+               delete $scope.runningSetup.configuringRun;
+
+               $scope.runningSetup.user = $rootScope.auth.user.uid;
 
                var setupKey = setup.$id;
+               $scope.runningSetup.setup = setupKey;
 
-               clone['setup'] = setupKey;
-
-               var jobRef = stagingRef.push(clone);
+               var jobRef = stagingRef.push($scope.runningSetup);
                var result = jobRef.child('result');
 
-               setup['jobRef'] = jobRef;
-               setup['running'] = true;
+               $scope.runningSetup.jobRef = jobRef; // used by view to show the link to the staging job in firebase
+               $scope.runningSetup.running = true; // for showing the right controls in the form in the html
 
                result.on('value', function(snapshot) {
                    if (!snapshot.val()) return; // the first time it sends null! So once cannot be used!
@@ -127,18 +178,23 @@ angular.module('swarmSched.controllers', [])
                        name: $rootScope.generateTimestamp()
                    });
 
-                   delete setup['running'];
-                   delete setup['jobRef'];
+                   $scope.runningSetup = new Object(); // also deletes $scope.runningSetup.running
+                   $scope.initRunningSetup();
 
                    var date = new Date();
                    $rootScope.messages.push(date.getFullYear() + '-' + $rootScope.pad(date.getMonth() + 1, 2) + '-' + $rootScope.pad(date.getDate(), 2) + ' ' + $rootScope.pad(date.getHours(), 2) + '.' + $rootScope.pad(date.getMinutes(), 2) + ": run available!");
                });
-           }
+           };
+
+           $scope.cancelRunConfiguration = function(setup) {
+               $scope.runningSetup = new Object(); // also deletes $scope.runningSetup.configuringRun
+               $scope.initRunningSetup();
+           };
 
            $scope.abortRun = function(setup) {
-               setup['jobRef'].remove();
-               delete setup['running'];
-               delete setup['jobRef'];
+               $scope.runningSetup.jobRef.remove();
+               delete $scope.runningSetup.running;
+               delete $scope.runningSetup.jobRef;
            };
 
            $scope.getStagingJobUrl = function(stagingJob) {

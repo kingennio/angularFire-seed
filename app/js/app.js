@@ -20,6 +20,7 @@ angular.module('swarmSched',
         $rootScope.auth = loginService.init('/login');
         $rootScope.FBURL = FBURL;
         $rootScope.messages = [];
+
         $rootScope.profileImage = function(img) {
             return "img/" + img + ".svg";
         }
@@ -28,42 +29,12 @@ angular.module('swarmSched',
 
         $rootScope.profiles = $firebase(profilesRef);
 
-        $rootScope.newSetup = $rootScope.newSetup || {
-            applianceProfiles: {},
-            upperPowerThreshold: 2000,
-            runTime: 15
-        }
+        $rootScope.profilesLoaded = false;
 
         $rootScope.profiles.$on('loaded', function() {
-            for (var p in  $rootScope.newSetup.applianceProfiles)
-                return;
-
-            console.log('init profiles loaded...')
-
-            for (p in $rootScope.profiles.tariffProfiles) {
-                $rootScope.newSetup.tariffProfile = p;
-                break;
-            }
-
-            for (p in $rootScope.profiles.solarProfiles) {
-                $rootScope.newSetup.solarProfile = p;
-                break;
-            }
-
-            for (p in $rootScope.profiles.loadProfiles) {
-                $rootScope.newSetup.loadProfile = p;
-                break;
-            }
-
-            var applianceProfiles = $rootScope.profiles.applianceProfiles;
-            for (var p in applianceProfiles) {
-                $rootScope.newSetup.applianceProfiles[p] = {
-                    id: p,
-                    numberOfInstances: 0,
-                    instances: []
-                }
-            }
-        })
+            console.log('init profiles loaded...');
+            $rootScope.profilesLoaded = true;
+        });
 
         $rootScope.sampleResult = $firebase(new Firebase(FBURL + '/vattelapesca'));
 
@@ -78,4 +49,6 @@ angular.module('swarmSched',
             var timestamp = date.getFullYear() + '-' + $rootScope.pad(date.getMonth() + 1, 2) + '-' + $rootScope.pad(date.getDate(), 2) + '_' + $rootScope.pad(date.getHours(), 2) + '.' + $rootScope.pad(date.getMinutes(), 2);
             return timestamp;
         };
+
+        $rootScope.clonedSetup = new Object(); // for passing a cloned setup from the setup list controller to the setup wizard controller
     }])

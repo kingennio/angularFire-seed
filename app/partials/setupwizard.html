@@ -49,7 +49,7 @@
                                        type="number"
                                        ng-required="true"
                                        value="2000"
-                                       ng-model="newSetup.upperPowerThreshold">
+                                       ng-model="setup.upperPowerThreshold">
                             </div>
                         </div>
 
@@ -60,11 +60,11 @@
                                 <div class="radio">
                                     <input type="radio" id="tariffProfile{{tkey}}" name="tariffProfile{{tkey}}"
                                            value="{{tval}}"
-                                           ng-model="newSetup.tariffProfile" ng-checked="newSetup.tariffProfile==tval"/>
+                                           ng-model="setup.tariffProfile" ng-checked="setup.tariffProfile==tval"/>
                                     <h5>{{tval}}</h5>
                                     <!--
-                                                                    <h4>newSetup.tariffProfile = {{newSetup.tariffProfile}}</h4>
-                                                                    <h4>newSetup.tariffProfile == tval : {{newSetup.tariffProfile == tval}}</h4>
+                                                                    <h4>setup.tariffProfile = {{setup.tariffProfile}}</h4>
+                                                                    <h4>setup.tariffProfile == tval : {{setup.tariffProfile == tval}}</h4>
                                     -->
                                 </div>
                                 <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
@@ -74,7 +74,7 @@
                             </div>
                             <!--
                                                     <pre>{{profiles.tariffProfiles | json}}</pre>
-                                                    <pre>{{newSetup.tariffProfile | json}}</pre>
+                                                    <pre>{{setup.tariffProfile | json}}</pre>
                             -->
                         </div>
 
@@ -84,7 +84,7 @@
                                 <div class="radio">
                                     <input type="radio" id="solarProfile{{skey}}" name="solarProfile{{skey}}"
                                            value="{{sval}}"
-                                           ng-model="newSetup.solarProfile" ng-checked="newSetup.solarProfile == sval"/>
+                                           ng-model="setup.solarProfile" ng-checked="setup.solarProfile == sval"/>
                                     <h5>{{skey}}</h5>
                                 </div>
                                 <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
@@ -94,7 +94,7 @@
                             </div>
                             <!--
                                                     <pre>{{profiles.solarProfiles | json}}</pre>
-                                                    <pre>{{newSetup.solarProfile | json}}</pre>
+                                                    <pre>{{setup.solarProfile | json}}</pre>
                             -->
                         </div>
 
@@ -104,7 +104,7 @@
                                 <div class="radio">
                                     <input type="radio" id="loadProfile{{lkey}}" name="loadProfile{{lkey}}"
                                            value="{{lval}}"
-                                           ng-model="newSetup.loadProfile" ng-checked="newSetup.loadProfile == lval"/>
+                                           ng-model="setup.loadProfile" ng-checked="setup.loadProfile == lval"/>
                                     <h5>{{lkey}}: value: {{lval}}</h5>
                                 </div>
                                 <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
@@ -114,7 +114,7 @@
                             </div>
                             <!--
                                                     <pre>{{profiles.loadProfiles | json}}</pre>
-                                                    <pre>{{newSetup.loadProfile | json}}</pre>
+                                                    <pre>{{setup.loadProfile | json}}</pre>
                             -->
                         </div>
 
@@ -122,7 +122,7 @@
 
                     <form class="tab-pane" id="applianceSelection" name="applianceSelectionForm" rc-submit="validateSetup()" rc-step>
                         <h2>Appliance Profiles</h2>
-                        <div ng-repeat="profile in newSetup.applianceProfiles">
+                        <div ng-repeat="profile in setup.applianceProfiles">
                             <div class="col-xs-1">
                                 <input id="{{ profile.id }}" name="{{ profile.id }}" type="number" class="form-control"
                                        ng-required="true" min="0" max="8" ng-model="profile.numberOfInstances"/>
@@ -139,7 +139,7 @@
 
                     <form class="tab-pane" id="applianceConfiguration" name="applianceConfigurationForm" rc-submit rc-step>
                         <h2>Appliance Config</h2>
-                        <div ng-repeat="profile in newSetup.applianceProfiles">
+                        <div ng-repeat="profile in setup.applianceProfiles">
                             <div ng-show="profile.numberOfInstances > 0">
 
                                 <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
@@ -191,7 +191,7 @@
                                 <input id="setupName" name="setupName" class="form-control"
                                        type="text"
                                        ng-required="true"
-                                       ng-model="newSetup.name">
+                                       ng-model="setup.name">
                             </div>
                         </div>
 
