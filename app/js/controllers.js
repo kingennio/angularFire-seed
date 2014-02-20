@@ -215,7 +215,7 @@ angular.module('swarmSched.controllers', [])
 
            $scope.generateImgUrl = function(img) {
                if (img == undefined || img == null) return '';
-               return 'http://localhost:8000/users/' + img;
+               return 'http://swarmjol.no-ip.biz:8283/users/' + img;
            };
     }])
 
