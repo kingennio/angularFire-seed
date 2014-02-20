@@ -125,61 +125,65 @@ angular.module('swarmSched.controllers', [])
                 }
             };
 
+            $scope.runningOptions = new Object();
             $scope.runningSetup = new Object();
 
-            $scope.initRunningSetup = function() {
-                $scope.runningSetup.scale = 0.1;
-                $scope.runningSetup.genderRatio = 0.5;
-                $scope.runningSetup.levyAlpha = 1.5;
-                $scope.runningSetup.temperature = 1;
-                $scope.runningSetup.runningTime = 6;
-                $scope.runningSetup.swarmSize = 10;
-                $scope.runningSetup.totalStats = 100;
-                $scope.runningSetup.strategy = 'butterfly';
+            $scope.initRunningOptions = function() {
+                $scope.runningOptions.scale = 0.1;
+                $scope.runningOptions.genderRatio = 0.5;
+                $scope.runningOptions.levyAlpha = 1.5;
+                $scope.runningOptions.temperature = 1;
+                $scope.runningOptions.runningTime = 6;
+                $scope.runningOptions.swarmSize = 10;
+                $scope.runningOptions.totalStats = 100;
+                $scope.runningOptions.strategy = 'butterfly';
             };
 
-            $scope.initRunningSetup(); // runningSetup must be filled with valid values from the beginning,
+            $scope.initRunningOptions(); // runningOptions must be filled with valid values from the beginning,
             // otherwise, the input field in the html raise an "invalid" error
 
             $scope.configureRun = function (setup) {
                 console.log("configureRun()");
 
-                $scope.runningSetup = new Object();
-                $scope.cloneSetup(setup, $scope.runningSetup);
-                $scope.initRunningSetup();
-
-                $scope.runningSetup.configuringRun = true; // for showing the right controls in the form in the html
+                $scope.runningOptions = new Object();
+                $scope.initRunningOptions();
+                $scope.runningOptions.configuringRun = true; // for showing the right controls in the form in the html
             };
 
             $scope.runSetup = function(setup) {
-               delete $scope.runningSetup.configuringRun;
+               delete $scope.runningOptions.configuringRun;
+
+               $scope.runningSetup = new Object();
+               $scope.cloneSetup(setup, $scope.runningSetup);
 
                $scope.runningSetup.user = $rootScope.auth.user.uid;
 
                var setupKey = setup.$id;
                $scope.runningSetup.setup = setupKey;
+               $scope.runningSetup.options = $scope.runningOptions;
 
                var jobRef = stagingRef.push($scope.runningSetup);
-               var result = jobRef.child('result');
+               var resultRef = new Firebase(FBURL + '/results/' + jobRef.name());
 
-               $scope.runningSetup.jobRef = jobRef; // used by view to show the link to the staging job in firebase
-               $scope.runningSetup.running = true; // for showing the right controls in the form in the html
+               $scope.runningOptions.jobRef = jobRef; // used by view to show the link to the staging job in firebase
+               $scope.runningOptions.running = true; // for showing the right controls in the form in the html
 
-               result.on('value', function(snapshot) {
+               resultRef.on('value', function(snapshot) {
                    if (!snapshot.val()) return; // the first time it sends null! So once cannot be used!
 
-                   result.off();
+                   resultRef.off();
                    var id = snapshot.name();
                    var value = snapshot.val();
                    jobRef.remove();
+                   resultRef.remove();
                    var runs = $rootScope.setups.$child(setupKey + '/runs');
                    runs.$add({
                        result: value,
                        name: $rootScope.generateTimestamp()
                    });
 
-                   $scope.runningSetup = new Object(); // also deletes $scope.runningSetup.running
-                   $scope.initRunningSetup();
+                   $scope.runningOptions = new Object(); // also deletes $scope.runningOptions.running
+                   $scope.initRunningOptions();
 
                    var date = new Date();
                    $rootScope.messages.push(date.getFullYear() + '-' + $rootScope.pad(date.getMonth() + 1, 2) + '-' + $rootScope.pad(date.getDate(), 2) + ' ' + $rootScope.pad(date.getHours(), 2) + '.' + $rootScope.pad(date.getMinutes(), 2) + ": run available!");
@@ -187,14 +191,14 @@ angular.module('swarmSched.controllers', [])
            };
 
            $scope.cancelRunConfiguration = function(setup) {
-               $scope.runningSetup = new Object(); // also deletes $scope.runningSetup.configuringRun
-               $scope.initRunningSetup();
+               $scope.runningOptions = new Object(); // also deletes $scope.runningOptions.configuringRun
+               $scope.initRunningOptions();
            };
 
            $scope.abortRun = function(setup) {
-               $scope.runningSetup.jobRef.remove();
-               delete $scope.runningSetup.running;
-               delete $scope.runningSetup.jobRef;
+               $scope.runningOptions.jobRef.remove();
+               delete $scope.runningOptions.running;
+               delete $scope.runningOptions.jobRef;
            };
 
            $scope.getStagingJobUrl = function(stagingJob) {
@@ -207,6 +211,11 @@ angular.module('swarmSched.controllers', [])
                    return 0;
                }
                return Object.keys(obj).length;
+           };
+
+           $scope.generateImgUrl = function(img) {
+               if (img == undefined || img == null) return '';
+               return 'http://localhost:8000/users/' + img;
            };
     }])
 

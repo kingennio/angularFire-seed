@@ -33,11 +33,11 @@
 
 <div ng-repeat="(runKey,runVal) in setup.runs">
     <h2 title="{{runKey}}">Run {{$index + 1}}/{{countFields(setup.runs)}}: {{runVal.name || runKey}}</h2>
-    <img src="img/scheduleresult.svg"/>
-    <img src="img/evolution.svg"/>
+    <img ng-if="runVal.result.schedulegraph" src="{{generateImgUrl(runVal.result.schedulegraph)}}" title="{{generateImgUrl(runVal.result.schedulegraph)}}"/>
+    <img ng-if="runVal.result.evolutiongraph" src="{{generateImgUrl(runVal.result.evolutiongraph)}}" title="{{generateImgUrl(runVal.result.evolutiongraph)}}"/>
     <h3>Statistics</h3>
     <table class="table table-bordered table-striped">
-        <tr ng-repeat="(k,v) in sampleResult.result.statistics">
+        <tr ng-repeat="(k,v) in runVal.result.statistics">
             <td>{{k}}</td>
             <td>{{v}}</td>
         </tr>
