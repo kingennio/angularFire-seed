@@ -92,6 +92,12 @@
                                 </div>
                                 <br/><br/>
                             </div>
+                            <div class="radio">
+                                <input type="radio" id="solarProfileNull" name="solarProfileNull"
+                                       value=""
+                                       ng-model="setup.solarProfile" ng-checked="setup.solarProfile == sval"/>
+                                <h5>Null Solar Profile</h5>
+                            </div>
                             <!--
                                                     <pre>{{profiles.solarProfiles | json}}</pre>
                                                     <pre>{{setup.solarProfile | json}}</pre>
@@ -105,12 +111,18 @@
                                     <input type="radio" id="loadProfile{{lkey}}" name="loadProfile{{lkey}}"
                                            value="{{lval}}"
                                            ng-model="setup.loadProfile" ng-checked="setup.loadProfile == lval"/>
-                                    <h5>{{lkey}}: value: {{lval}}</h5>
+                                    <h5>{{lkey}}</h5>
                                 </div>
                                 <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
                                     <div class="responsive-content" ng-include="profileImage(lkey)"></div>
                                 </div>
                                 <br/><br/>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" id="loadProfileNull" name="loadProfileNull"
+                                       value=""
+                                       ng-model="setup.loadProfile" ng-checked="setup.loadProfile == lval"/>
+                                <h5>Null Load Profile</h5>
                             </div>
                             <!--
                                                     <pre>{{profiles.loadProfiles | json}}</pre>
