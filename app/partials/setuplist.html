@@ -19,7 +19,7 @@
                                 <a class="btn btn-default" ng-click="cloneSetup(setup, clonedSetup)"
                                    data-loading-text="Please Wait..."
                                    ng-href="#/setupwizard">Clone Setup</a>
-                                <a ng-show="runningOptions.running" href="{{getStagingJobUrl(runningSetup.jobRef.path.m[1])}}"
+                                <a ng-show="runningOptions.running" href="{{getStagingJobUrl(runningOptions.jobRef.path.m[1])}}"
                                    target="_blank">[stagingJob: {{runningOptions.jobRef.path.m[1]}}]</a>
                                 <div class="bs-docs-example" ng-show="runningOptions.configuringRun">
                                     <span for="scale">Scale [0.001 – 10]</span>
