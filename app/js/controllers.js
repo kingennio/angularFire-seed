@@ -217,6 +217,10 @@ angular.module('swarmSched.controllers', [])
                if (img == undefined || img == null) return '';
                return 'http://swarmjol.no-ip.biz:8283/users/' + img;
            };
+
+           $scope.isNotANumber = function(cost) {
+               return isNaN(cost);
+           };
     }])
 
     .controller('SolarProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {
