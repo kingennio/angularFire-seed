@@ -1,12 +1,39 @@
-<!--<div>setup: {{setup.$id}}</div>-->
+<div>
+    <h4>Upper power threshold: {{setup.upperPowerThreshold}}</h4>
+    <hr/>
+</div>
+
+<div>
+    <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+        <div class="responsive-content" ng-include="profileImage(setup.tariffProfile)"></div>
+    </div>
+    <h4>Tariff: {{setup.tariffProfile}}</h4>
+    <hr/>
+</div>
+
+<div ng-if="setup.solarProfile">
+    <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+        <div class="responsive-content" ng-include="profileImage(setup.solarProfile)"></div>
+    </div>
+    <h4>Solar: {{setup.solarProfile}}</h4>
+</div>
+<div ng-if="!setup.solarProfile">
+    <h4>Solar: null</h4>
+</div>
+<hr/>
+
+<div ng-if="setup.loadProfile">
+    <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+        <div class="responsive-content" ng-include="profileImage(setup.loadProfile)"></div>
+    </div>
+    <h4>Load: {{setup.loadProfile}}</h4>
+</div>
+<div ng-if="!setup.loadProfile">
+    <h4>Load: null</h4>
+</div>
+<hr/>
 
 <div ng-repeat="profile in setup.applianceProfiles | orderByPriority">
-
-<!--
-    <div>profile: {{profile}}</div>
-    <div>profile.id: {{profile.id}}</div>
--->
-
     <div ng-show="profile.numberOfInstances > 0">
         <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
             <div class="responsive-content" ng-include="profileImage(profile.id)"/>
