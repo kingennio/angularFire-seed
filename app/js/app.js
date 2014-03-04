@@ -36,8 +36,6 @@ angular.module('swarmSched',
             $rootScope.profilesLoaded = true;
         });
 
-        $rootScope.sampleResult = $firebase(new Firebase(FBURL + '/vattelapesca'));
-
         $rootScope.pad = function pad(num, size) {
             var s = num+"";
             while (s.length < size) s = "0" + s;
