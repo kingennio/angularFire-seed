@@ -71,11 +71,18 @@
                 <th>Start Time</th>
                 <th>End Time</th>
             </tr>
-            <tr ng-repeat="(k,v) in runVal.result.schedule">
-                <td>{{v.name}}</td>
-                <td>{{v.schedule}}</td>
-                <td>{{v.startTime}}</td>
-                <td>{{v.endTime}}</td>
+            <tr ng-if="getTypeOf( runVal.result.schedule ) === '[object Array]'" ng-repeat="scheduleInstance in runVal.result.schedule">
+                <!-- The ng-ifs are necessary because, when Matlab generates an array of one object, it zips it to just the object, so it is no more an array!?! -->
+                <td>{{scheduleInstance.name}}</td>
+                <td>{{scheduleInstance.schedule}}</td>
+                <td>{{scheduleInstance.startTime}}</td>
+                <td>{{scheduleInstance.endTime}}</td>
+            </tr>
+            <tr ng-if="!(getTypeOf( runVal.result.schedule ) === '[object Array]')">
+                <td>{{runVal.result.schedule.name}}</td>
+                <td>{{runVal.result.schedule.schedule}}</td>
+                <td>{{runVal.result.schedule.startTime}}</td>
+                <td>{{runVal.result.schedule.endTime}}</td>
             </tr>
         </table>
     </div>

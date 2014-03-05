@@ -221,6 +221,10 @@ angular.module('swarmSched.controllers', [])
            $scope.isNotANumber = function(cost) {
                return isNaN(cost);
            };
+
+           $scope.getTypeOf = function(v) {
+               return Object.prototype.toString.call(v);
+           };
     }])
 
     .controller('SolarProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {

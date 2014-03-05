@@ -33,14 +33,30 @@
                 </ul>
                 <br/><br/>
 
-
-                <!--<pre> {{ newSetup | json }} </pre>-->
+                <div class="form-group">
+                    <div class="pull-right">
+                        <a class="btn btn-default" ng-click="rc.setupWizard.backward()"
+                           ng-show="rc.setupWizard.currentIndex > rc.setupWizard.firstIndex">Back</a>
+                        <a class="btn btn-primary" data-loading-text="Please Wait..."
+                           ng-click="rc.setupWizard.forward()"
+                           ng-show="rc.setupWizard.currentIndex < rc.setupWizard.navigationLength">Continue</a>
+                        <a class="btn btn-primary" ng-click="rc.setupWizard.forward()"
+                           ng-show="rc.setupWizard.currentIndex == rc.setupWizard.navigationLength">Complete</a>
+                    </div>
+                </div>
 
                 <div class="tab-content">
 
                     <form class="tab-pane active" id="tariffSelection" name="tariffSelectionForm" rc-step novalidate>
 
-                        <h3>Tariff, Solar, and Load Profiles</h3> <!-- Select a upper power threshold, tariff, and optional solar and (unmovable) forecasted load profiles -->
+                        <h2>Tariff, Solar, and Load Profiles</h2>
+
+                        <div class="bs-docs-example">
+                            <div>Threshold: {{setup.upperPowerThreshold}}W</div>
+                            <div>{{setup.tariffProfile}}</div>
+                            <div>{{setup.solarProfile}}</div>
+                            <div>{{setup.loadProfile}}</div>
+                        </div>
 
                         <div class="bs-docs-example">
                             <h4><b>Upper power threshold (1000 W - 10000 W)</b></h4>
@@ -98,10 +114,6 @@
                                        ng-model="setup.solarProfile" ng-checked="!setup.solarProfile"/>
                                 <h5>Null Solar Profile</h5>
                             </div>
-                            <!--
-                                                    <pre>{{profiles.solarProfiles | json}}</pre>
-                                                    <pre>{{setup.solarProfile | json}}</pre>
-                            -->
                         </div>
 
                         <div class="bs-docs-example">
@@ -124,16 +136,18 @@
                                        ng-model="setup.loadProfile" ng-checked="!setup.loadProfile"/>
                                 <h5>Null Load Profile</h5>
                             </div>
-                            <!--
-                                                    <pre>{{profiles.loadProfiles | json}}</pre>
-                                                    <pre>{{setup.loadProfile | json}}</pre>
-                            -->
                         </div>
-
                     </form>
 
                     <form class="tab-pane" id="applianceSelection" name="applianceSelectionForm" rc-submit="validateSetup()" rc-step>
                         <h2>Appliance Profiles</h2>
+
+                        <div class="bs-docs-example">
+                            <div ng-repeat="profile in setup.applianceProfiles">
+                                <div>{{ profiles.applianceProfiles[profile.id]}}: {{profile.numberOfInstances}}</div>
+                            </div>
+                        </div>
+
                         <div ng-repeat="profile in setup.applianceProfiles">
                             <div class="col-xs-1">
                                 <input id="{{ profile.id }}" name="{{ profile.id }}" type="number" class="form-control"
@@ -151,6 +165,7 @@
 
                     <form class="tab-pane" id="applianceConfiguration" name="applianceConfigurationForm" rc-submit rc-step>
                         <h2>Appliance Config</h2>
+
                         <div ng-repeat="profile in setup.applianceProfiles">
                             <div ng-show="profile.numberOfInstances > 0">
 

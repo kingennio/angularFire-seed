@@ -16,7 +16,7 @@
 
                         <form class="form-inline" role="form">
                             <div class="form-group">
-                                <a class="btn btn-default" ng-click="cloneSetup(setup, clonedSetup)"
+                                <a class="btn btn-default" ng-click="cloneSetup(setup, clonedSetup)" ng-hide="runningOptions.running || runningOptions.configuringRun"
                                    data-loading-text="Please Wait..."
                                    ng-href="#/setupwizard">Clone Setup</a>
                                 <a ng-show="runningOptions.running" href="{{getStagingJobUrl(runningOptions.jobRef.path.m[1])}}"
@@ -75,21 +75,14 @@
                                         <option>Ant Colony Optimization</option>
                                         <option>Quantum Particle Swarm w/ Lévy</option>
                                     </select>
-                                    <a class="btn btn-primary" ng-click="cancelRunConfiguration(setup)" ng-show="runningOptions.configuringRun"
-                                            data-loading-text="Please Wait...">Cancel</a>
-                                    <a class="btn btn-primary" ng-click="runSetup(setup)" ng-show="runningOptions.configuringRun"
-                                            data-loading-text="Please Wait...">Launch Run</a>
+                                    <a class="btn btn-primary" ng-click="cancelRunConfiguration(setup)" ng-show="runningOptions.configuringRun">Cancel</a>
+                                    <a class="btn btn-primary" ng-click="runSetup(setup)" ng-show="runningOptions.configuringRun">Launch Run</a>
                                 </div>
-                                <a class="btn btn-primary" ng-click="configureRun(setup)" ng-hide="runningOptions.running || runningOptions.configuringRun"
-                                   data-loading-text="Please Wait...">New Run</a>
-                                <a class="btn btn-primary" ng-click="abortRun(setup)" ng-show="runningOptions.running"
-                                   data-loading-text="Please Wait...">Cancel Run</a>
+                                <a class="btn btn-primary" ng-click="configureRun(setup)" ng-hide="runningOptions.running || runningOptions.configuringRun">New Run</a>
+                                <a class="btn btn-primary" ng-click="abortRun(setup)" ng-show="runningOptions.running">Cancel Run</a>
                                 <i class="fa fa-spinner fa-spin" ng-show="runningOptions.running"></i>
                             </div>
                         </form>
-
-                        <!--<pre> {{ runningOptions | json }} </pre>--> <!-- raises $interpolate:interr -->
-
                     </div>
                 </div>
             </li>
