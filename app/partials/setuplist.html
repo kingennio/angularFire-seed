@@ -10,9 +10,10 @@
 
                 <div ng-if="clicked" class="animate-if">
                     <div class="col-xs-12 col-sm-11 col-md-10">
-                        <h2>Setup Details</h2>
-
-                        <div ng-include="'partials/setupview.html'"></div>
+                        <a ng-show="showSetupDetails" ng-click="showSetupDetails=!showSetupDetails">Toggle Setup Details</a>
+                        <h2 ng-show="showSetupDetails">Setup Details</h2>
+                        <div ng-show="showSetupDetails" ng-model="showSetupDetails" ng-init="showSetupDetails=true" ng-include="'partials/setupview.html'"></div>
+                        <a ng-click="showSetupDetails=!showSetupDetails">Toggle Setup Details</a>
 
                         <form class="form-inline" role="form">
                             <div class="form-group">
