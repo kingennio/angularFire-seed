@@ -225,6 +225,8 @@ angular.module('swarmSched.controllers', [])
            $scope.getTypeOf = function(v) {
                return Object.prototype.toString.call(v);
            };
+
+           $scope.clicked = new Object(); // object containing the clicked status of each setup
     }])
 
     .controller('SolarProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {
