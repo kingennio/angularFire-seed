@@ -79,20 +79,12 @@
                                            value="{{tval}}"
                                            ng-model="setup.tariffProfile" ng-checked="setup.tariffProfile==tval"/>
                                     <h5>{{tval}}</h5>
-                                    <!--
-                                                                    <h4>setup.tariffProfile = {{setup.tariffProfile}}</h4>
-                                                                    <h4>setup.tariffProfile == tval : {{setup.tariffProfile == tval}}</h4>
-                                    -->
                                 </div>
                                 <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
                                     <div class="responsive-content" ng-include="profileImage(tkey)"></div>
                                 </div>
                                 <br/><br/>
                             </div>
-                            <!--
-                                                    <pre>{{profiles.tariffProfiles | json}}</pre>
-                                                    <pre>{{setup.tariffProfile | json}}</pre>
-                            -->
                         </div>
 
                         <div class="bs-docs-example">
