@@ -6,9 +6,9 @@
 
         <ul class="row" ng-repeat="setup in setups | orderByPriority">
             <li>
-                <a ng-model="clicked[setup.$id]" ng-click="clicked[setup.$id] = !clicked[setup.$id]" title="{{setup.$id}}">{{setup.name || setup.$id}}</a>
+                <a ng-model="clicked" ng-click="clicked = !clicked" title="{{setup.$id}}">{{setup.name || setup.$id}}</a>
 
-                <div ng-if="clicked[setup.$id]" class="animate-if">
+                <div ng-if="clicked" class="animate-if">
                     <div class="col-xs-12 col-sm-11 col-md-10">
                         <div ng-include="'partials/setupview.html'"></div>
 
@@ -81,7 +81,7 @@
                                 <i class="fa fa-spinner fa-spin" ng-show="runningOptions.running"></i>
                             </div>
                         </form>
-                        <a ng-click="$parent.clicked[setup.$id]=false" title="closeSetup{{setup.$id}}" ng-hide="runningOptions.running || runningOptions.configuringRun">Close Setup</a>
+                        <a ng-click="$parent.clicked=false" title="closeSetup{{setup.$id}}" ng-hide="runningOptions.running || runningOptions.configuringRun">Close Setup</a>
                     </div>
                 </div>
             </li>

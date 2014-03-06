@@ -101,5 +101,14 @@
             <td>{{v}}</td>
         </tr>
     </table>
+    <div ng-if="runVal.options">
+        <h3>Options</h3>
+        <table class="table table-bordered table-striped">
+            <tr ng-repeat="(k,v) in runVal.options">
+                <td>{{k}}</td>
+                <td>{{v}}</td>
+            </tr>
+        </table>
+    </div>
     <hr/>
 </div>

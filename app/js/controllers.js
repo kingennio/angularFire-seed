@@ -125,6 +125,10 @@ angular.module('swarmSched.controllers', [])
                 }
             };
 
+            $scope.cloneOptions = function(orig, dest) {
+                angular.copy(orig, dest);
+            };
+
             $scope.runningOptions = new Object();
             $scope.runningSetup = new Object();
 
@@ -162,6 +166,10 @@ angular.module('swarmSched.controllers', [])
                $scope.runningSetup.setup = setupKey;
                $scope.runningSetup.options = $scope.runningOptions;
 
+               var clonedOptions = new Object();
+               $scope.cloneOptions($scope.runningSetup.options, clonedOptions); // must clone now and cannot use directly the $scope.runningSetup.options in the on callback, because it crashes the page in Chrome!?!
+               var setupName = setup.name;
+
                var jobRef = stagingRef.push($scope.runningSetup);
                var resultRef = new Firebase(FBURL + '/results/' + jobRef.name());
 
@@ -177,16 +185,24 @@ angular.module('swarmSched.controllers', [])
                    jobRef.remove();
                    resultRef.remove();
                    var runs = $rootScope.setups.$child(setupKey + '/runs');
-                   runs.$add({
+                   var run = {
                        result: value,
-                       name: $rootScope.generateTimestamp()
-                   });
+                       name: $rootScope.generateTimestamp(),
+                       options: clonedOptions
+                   };
+                   runs.$add(run);
 
-                   $scope.runningOptions = new Object(); // as a side wffect $scope.runningOptions.running becomes "false"
+                   $scope.runningOptions = new Object(); // as a side effect $scope.runningOptions.running becomes "false"
                    $scope.initRunningOptions();
 
                    var date = new Date();
-                   $rootScope.messages.push(date.getFullYear() + '-' + $rootScope.pad(date.getMonth() + 1, 2) + '-' + $rootScope.pad(date.getDate(), 2) + ' ' + $rootScope.pad(date.getHours(), 2) + '.' + $rootScope.pad(date.getMinutes(), 2) + ": run available!");
+                   $rootScope.messages.push(date.getFullYear() + '-' + $rootScope.pad(date.getMonth() + 1, 2) + '-' + $rootScope.pad(date.getDate(), 2) + ' ' + $rootScope.pad(date.getHours(), 2) + '.' + $rootScope.pad(date.getMinutes(), 2) +
+                       ": run result available for setup " + setupName);
+
+                   // set the location.hash to the id of
+                   // the element you wish to scroll to.
+                   var hash = "run_" + setupKey + "_" + id;
+                   $rootScope.messageHashes.push(hash);
                });
            };
 
@@ -225,9 +241,7 @@ angular.module('swarmSched.controllers', [])
            $scope.getTypeOf = function(v) {
                return Object.prototype.toString.call(v);
            };
-
-           $scope.clicked = new Object(); // object containing the clicked status of each setup
-    }])
+        }])
 
     .controller('SolarProfilesController', ['$scope', 'FBURL', '$firebase', function($scope, FBURL, $firebase) {
         var solarProfilesRef = new Firebase(FBURL + '/profiles1/solarProfiles');
@@ -249,12 +263,9 @@ angular.module('swarmSched.controllers', [])
         $scope.applianceProfiles = $firebase(applianceProfilesRef);
     }])
 
-    .controller('HomeController', ['$scope', 'syncData', function($scope, syncData) {
-      syncData('syncedValue').$bind($scope, 'syncedValue');
-   }])
+    .controller('HomeController', ['$scope', function($scope) {}])
 
-    .controller('InitialController', ['$scope', function($scope) {
-   }])
+    .controller('InitialController', ['$scope', function($scope) {}])
 
   .controller('ChatCtrl', ['$scope', 'syncData', function($scope, syncData) {
       $scope.newMessage = null;
