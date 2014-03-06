@@ -182,7 +182,7 @@ angular.module('swarmSched.controllers', [])
                        name: $rootScope.generateTimestamp()
                    });
 
-                   $scope.runningOptions = new Object(); // also deletes $scope.runningOptions.running
+                   $scope.runningOptions = new Object(); // as a side wffect $scope.runningOptions.running becomes "false"
                    $scope.initRunningOptions();
 
                    var date = new Date();

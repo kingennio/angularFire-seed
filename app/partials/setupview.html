@@ -1,62 +1,67 @@
-<div>
-    <h4>Upper power threshold: {{setup.upperPowerThreshold}}</h4>
-    <hr/>
-</div>
-
-<div>
-    <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-        <div class="responsive-content" ng-include="profileImage(setup.tariffProfile)"></div>
+<a ng-model="showSetupDetails" ng-init="showSetupDetails=true" ng-show="showSetupDetails" ng-click="showSetupDetails=!showSetupDetails">Toggle Setup Details</a>
+<div ng-show="showSetupDetails">
+    <h2>Setup Details</h2>
+    <div>
+        <h4>Upper power threshold: {{setup.upperPowerThreshold}}</h4>
+        <hr/>
     </div>
-    <h4>Tariff: {{setup.tariffProfile}}</h4>
-    <hr/>
-</div>
 
-<div ng-if="setup.solarProfile">
-    <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-        <div class="responsive-content" ng-include="profileImage(setup.solarProfile)"></div>
-    </div>
-    <h4>Solar: {{setup.solarProfile}}</h4>
-</div>
-<div ng-if="!setup.solarProfile">
-    <h4>Solar: null</h4>
-</div>
-<hr/>
-
-<div ng-if="setup.loadProfile">
-    <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-        <div class="responsive-content" ng-include="profileImage(setup.loadProfile)"></div>
-    </div>
-    <h4>Load Forecasting: {{setup.loadProfile}}</h4>
-</div>
-<div ng-if="!setup.loadProfile">
-    <h4>Load: null</h4>
-</div>
-<hr/>
-
-<div ng-repeat="profile in setup.applianceProfiles | orderByPriority">
-    <div ng-show="profile.numberOfInstances > 0">
+    <div>
         <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
-            <div class="responsive-content" ng-include="profileImage(profile.id)"/>
+            <div class="responsive-content" ng-include="profileImage(setup.tariffProfile)"></div>
         </div>
+        <h4>Tariff: {{setup.tariffProfile}}</h4>
+        <hr/>
+    </div>
 
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>Appliance Name</th>
-                <th>Start After</th>
-                <th>End Before</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="appliance in profile.instances">
-                <td>{{ appliance.name }}</td>
-                <td>{{ appliance.startTime }}</td>
-                <td>{{ appliance.endTime }}</td>
-            </tr>
-            </tbody>
-        </table>
+    <div ng-if="setup.solarProfile">
+        <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+            <div class="responsive-content" ng-include="profileImage(setup.solarProfile)"></div>
+        </div>
+        <h4>Solar: {{setup.solarProfile}}</h4>
+    </div>
+    <div ng-if="!setup.solarProfile">
+        <h4>Solar: null</h4>
+    </div>
+    <hr/>
+
+    <div ng-if="setup.loadProfile">
+        <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+            <div class="responsive-content" ng-include="profileImage(setup.loadProfile)"></div>
+        </div>
+        <h4>Load Forecasting: {{setup.loadProfile}}</h4>
+    </div>
+    <div ng-if="!setup.loadProfile">
+        <h4>Load: null</h4>
+    </div>
+    <hr/>
+
+    <div ng-repeat="profile in setup.applianceProfiles | orderByPriority">
+        <div ng-show="profile.numberOfInstances > 0">
+            <div class="responsive-wrapper" style="padding-top: {{ 30 }}%;">
+                <div class="responsive-content" ng-include="profileImage(profile.id)"/>
+            </div>
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Appliance Name</th>
+                    <th>Start After</th>
+                    <th>End Before</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="appliance in profile.instances">
+                    <td>{{ appliance.name }}</td>
+                    <td>{{ appliance.startTime }}</td>
+                    <td>{{ appliance.endTime }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+<a ng-click="showSetupDetails=!showSetupDetails">Toggle Setup Details</a>
 
 <div ng-repeat="(runKey,runVal) in setup.runs">
     <h2 title="{{runKey}}">Run {{$index + 1}}/{{countFields(setup.runs)}}: {{runVal.name || runKey}}</h2>
